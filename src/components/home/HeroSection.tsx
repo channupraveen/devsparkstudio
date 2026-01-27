@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Building2, Hospital, ShoppingBag, Rocket, Users } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Rotating words for the headline animation
 const rotatingWords = [
   "Websites",
-  "Web Apps",
-  "Brands",
-  "Experiences",
+  "Apps",
   "Platforms",
+  "Dashboards",
+  "Systems",
 ];
 
 // Hero images that will rotate
@@ -29,6 +29,15 @@ const heroImages = [
     src: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=700&fit=crop",
     alt: "Mobile app interface",
   },
+];
+
+// Industries we serve
+const industries = [
+  { icon: Building2, name: "Hotels & Resorts" },
+  { icon: Hospital, name: "Hospitals & Clinics" },
+  { icon: ShoppingBag, name: "Malls & Retail" },
+  { icon: Rocket, name: "Startups & SaaS" },
+  { icon: Users, name: "SMBs" },
 ];
 
 const HeroSection = () => {
@@ -65,9 +74,9 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary leading-[1.1] tracking-tight"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary leading-[1.1] tracking-tight"
             >
-              Build Powerful
+              We Build High-Converting
               <br />
               <span className="inline-block relative min-w-[280px] sm:min-w-[320px] lg:min-w-[400px]">
                 <AnimatePresence mode="wait">
@@ -87,7 +96,7 @@ const HeroSection = () => {
                 </AnimatePresence>
               </span>
               <br />
-              in Minutes
+              for Growing Businesses
             </motion.h1>
 
             {/* Subheadline */}
@@ -97,8 +106,8 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg sm:text-xl text-gray-500 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
-              We build fast, scalable websites & web applications for growing businesses. 
-              High-performance, SEO-ready, and designed for conversions.
+              Custom websites, SaaS platforms, and business systems that help companies 
+              get more <span className="text-primary font-semibold">leads</span>, <span className="text-primary font-semibold">customers</span>, and <span className="text-primary font-semibold">growth</span>.
             </motion.p>
 
             {/* Location */}
@@ -108,7 +117,7 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-gray-500"
             >
-              📍 India • 🌍 Working with clients globally
+              📍 Hyderabad, India • 🌍 Working with clients globally
             </motion.p>
 
             {/* CTAs */}
@@ -124,7 +133,7 @@ const HeroSection = () => {
                   whileTap={{ scale: 0.98 }}
                   className="w-full sm:w-auto px-8 py-4 bg-primary text-white rounded-full font-semibold text-base hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2"
                 >
-                  Start Building for Free
+                  Get a Free Consultation
                   <span className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
                     <ArrowRight className="w-4 h-4" />
                   </span>
@@ -195,10 +204,10 @@ const HeroSection = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="absolute top-16 -left-32 bg-white rounded-xl shadow-lg p-3 w-40 border border-gray-100"
               >
-                <div className="text-[10px] text-gray-400 mb-1">Analytics</div>
+                <div className="text-[10px] text-gray-400 mb-1">Website Traffic</div>
                 <div className="flex items-baseline gap-1">
                   <span className="text-lg font-bold text-gray-900">4,567</span>
-                  <span className="text-[10px] text-green-500">+12%</span>
+                  <span className="text-[10px] text-green-500">+127%</span>
                 </div>
                 <div className="mt-2 flex gap-1">
                   {[40, 65, 45, 80, 55, 70, 60].map((h, i) => (
@@ -218,8 +227,8 @@ const HeroSection = () => {
                 transition={{ duration: 0.6, delay: 0.7 }}
                 className="absolute top-24 -right-24 bg-white rounded-xl shadow-lg p-3 w-36 border border-gray-100"
               >
-                <div className="text-[10px] text-gray-400 mb-1">Revenue</div>
-                <div className="text-lg font-bold text-gray-900">$7,325</div>
+                <div className="text-[10px] text-gray-400 mb-1">New Leads</div>
+                <div className="text-lg font-bold text-gray-900">+89</div>
                 <div className="mt-1 w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
                   <div className="w-3/4 h-full bg-green-500 rounded-full" />
                 </div>
@@ -233,53 +242,54 @@ const HeroSection = () => {
                 className="absolute -bottom-8 -left-20 bg-white rounded-xl shadow-lg p-3 w-44 border border-gray-100"
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center text-xs">📊</div>
+                  <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center text-xs">✅</div>
                   <div>
-                    <div className="text-xs font-semibold text-gray-900">Assets</div>
-                    <div className="text-[10px] text-gray-400">3,215 items</div>
+                    <div className="text-xs font-semibold text-gray-900">Conversions</div>
+                    <div className="text-[10px] text-gray-400">+215 this month</div>
                   </div>
                 </div>
                 <div className="flex gap-1">
-                  <span className="px-2 py-0.5 bg-blue-50 text-blue-600 rounded text-[9px]">Images</span>
-                  <span className="px-2 py-0.5 bg-green-50 text-green-600 rounded text-[9px]">Videos</span>
-                  <span className="px-2 py-0.5 bg-purple-50 text-purple-600 rounded text-[9px]">Docs</span>
+                  <span className="px-2 py-0.5 bg-blue-50 text-blue-600 rounded text-[9px]">Leads</span>
+                  <span className="px-2 py-0.5 bg-green-50 text-green-600 rounded text-[9px]">Sales</span>
+                  <span className="px-2 py-0.5 bg-purple-50 text-purple-600 rounded text-[9px]">Growth</span>
                 </div>
               </motion.div>
             </div>
           </motion.div>
         </div>
 
-        {/* Trust Section */}
+        {/* Built For Section - Industries */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-20 lg:mt-32"
         >
-          <p className="text-center text-sm text-gray-400 mb-8">
-            Trusted by teams, creators, and businesses worldwide for sure.
+          <p className="text-center text-sm font-semibold text-primary uppercase tracking-wider mb-8">
+            Built for Businesses That Want Results
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {["Healthcare+", "TechMart", "PropTech", "Elavenn", "UniqueStyle"].map((brand, index) => (
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+            {industries.map((industry, index) => (
               <motion.div
-                key={brand}
+                key={industry.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-                className="text-xl font-semibold text-gray-300 hover:text-gray-400 transition-colors cursor-default"
+                className="flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-full hover:bg-gray-100 transition-colors cursor-default"
               >
-                {brand}
+                <industry.icon className="w-4 h-4 text-accent" />
+                <span className="text-sm font-medium text-gray-600">{industry.name}</span>
               </motion.div>
             ))}
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-              className="px-4 py-2 border border-gray-200 rounded-full text-sm text-gray-500 hover:border-gray-300 transition-colors"
-            >
-              Join
-            </motion.button>
           </div>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 1.1 }}
+            className="text-center text-gray-400 text-sm mt-6"
+          >
+            Whether you're offline or online — we help you go digital the right way.
+          </motion.p>
         </motion.div>
       </div>
     </section>

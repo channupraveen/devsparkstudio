@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Monitor, Search, Palette, Settings, ShoppingCart, Wrench } from "lucide-react";
+import { Monitor, Code2, Wrench, Search, Globe, Palette } from "lucide-react";
 
 const services = [
   {
     icon: Monitor,
     title: "Website Development",
     description:
-      "Fast, secure, mobile-friendly websites that look professional and perform reliably across all devices.",
+      "Fast, modern, mobile-friendly websites built to convert visitors into customers. SEO-ready and designed for growth.",
     features: [
       "Mobile-first responsive design",
       "Fast loading & optimized performance",
@@ -18,46 +18,46 @@ const services = [
     color: "blue",
   },
   {
-    icon: Search,
-    title: "Search Engine Optimization",
+    icon: Code2,
+    title: "SaaS & Business Applications",
     description:
-      "Build strong SEO foundations so your websites are discoverable, structured properly, and ready to grow.",
+      "Custom SaaS platforms, dashboards, and internal systems tailored to your business needs. From MVPs to enterprise solutions.",
     features: [
-      "Technical SEO setup",
-      "Keyword research & optimization",
-      "Clean site architecture",
-      "Analytics & tracking setup",
+      "Admin panels & dashboards",
+      "Ticket management systems",
+      "QR-based service requests",
+      "Multi-tenant architecture",
     ],
     color: "green",
   },
   {
-    icon: Palette,
-    title: "UI/UX Design & Branding",
+    icon: Wrench,
+    title: "Maintenance & Support",
     description:
-      "Design that's about clarity, not decoration. Focus on user experience and clean interfaces.",
+      "Ongoing updates, performance optimization, and technical support to keep your site secure, fast, and up to date.",
     features: [
-      "User journey planning",
-      "Wireframes & UI designs",
-      "Brand-consistent layouts",
-      "UX improvement recommendations",
-    ],
-    color: "purple",
-  },
-  {
-    icon: Settings,
-    title: "Custom Web Applications",
-    description:
-      "Custom web applications designed around your exact business process when ready-made software doesn't fit.",
-    features: [
-      "Internal dashboards & admin panels",
-      "Healthcare management tools",
-      "Real estate portals & CRMs",
-      "SaaS MVPs & internal tools",
+      "Regular security updates",
+      "Performance monitoring",
+      "Bug fixes & enhancements",
+      "Priority support",
     ],
     color: "orange",
   },
   {
-    icon: ShoppingCart,
+    icon: Search,
+    title: "SEO & Performance",
+    description:
+      "Optimized websites that rank better and load faster. Build a strong SEO foundation for organic growth.",
+    features: [
+      "Technical SEO setup",
+      "Core Web Vitals optimization",
+      "Clean site architecture",
+      "Analytics & tracking setup",
+    ],
+    color: "purple",
+  },
+  {
+    icon: Globe,
     title: "E-commerce Development",
     description:
       "Clean, fast, and secure online stores that provide smooth shopping experiences and easy management.",
@@ -65,20 +65,20 @@ const services = [
       "Payment gateway integration",
       "Product & inventory management",
       "Mobile-optimized checkout",
-      "Secure & scalable architecture",
+      "Secure transactions",
     ],
     color: "pink",
   },
   {
-    icon: Wrench,
-    title: "Maintenance & Support",
+    icon: Palette,
+    title: "UI/UX Design",
     description:
-      "Regular updates, monitoring, and maintenance to keep your site secure, fast, and up to date.",
+      "Design that's about clarity, not decoration. Focus on user experience and clean interfaces that convert.",
     features: [
-      "Security updates & monitoring",
-      "Performance optimization",
-      "Regular backups",
-      "Priority support",
+      "User journey planning",
+      "Wireframes & prototypes",
+      "Brand-consistent layouts",
+      "Figma design handoff",
     ],
     color: "teal",
   },
@@ -98,7 +98,7 @@ const ServicesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-padding bg-gray-50/50">
+    <section ref={ref} id="services" className="section-padding bg-gray-50/50">
       <div className="container-custom">
         {/* Header */}
         <motion.div
@@ -108,14 +108,14 @@ const ServicesSection = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-sm font-medium text-accent uppercase tracking-wider">
-            What We Do
+            Our Services
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mt-4 mb-6">
-            Services Designed for Long-Term Business Growth
+            Everything You Need to Grow Online
           </h2>
           <p className="text-lg text-gray-500">
-            We don't just build websites. We create reliable digital systems that help
-            businesses operate better, grow faster, and scale smoothly.
+            From simple websites to complex business systems — we deliver solutions 
+            that drive real results for your business.
           </p>
         </motion.div>
 

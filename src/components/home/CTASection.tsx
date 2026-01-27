@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, MessageCircle, Phone } from "lucide-react";
 
 const CTASection = () => {
   const ref = useRef(null);
@@ -16,7 +16,7 @@ const CTASection = () => {
   ];
 
   return (
-    <section ref={ref} className="section-padding bg-gray-50/50 overflow-hidden">
+    <section ref={ref} id="contact-cta" className="section-padding bg-gray-50/50 overflow-hidden">
       <div className="container-custom">
         <div className="relative bg-white rounded-3xl p-8 md:p-12 lg:p-16 shadow-soft-lg overflow-hidden">
           {/* Background decorations */}
@@ -51,9 +51,9 @@ const CTASection = () => {
               transition={{ duration: 0.6 }}
               className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4"
             >
-              Start Building
+              Let's Build Something
               <br />
-              <span className="text-gray-400">Forms People Love</span>
+              <span className="text-accent">That Grows Your Business</span>
             </motion.h2>
 
             <motion.p
@@ -62,7 +62,9 @@ const CTASection = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-gray-500 text-lg mb-8"
             >
-              Create your first form today. No credit card required.
+              Have an idea or need a website? Let's discuss and turn it into reality.
+              <br />
+              <span className="font-semibold text-primary">No commitment, just a conversation.</span>
             </motion.p>
 
             {/* CTAs */}
@@ -76,21 +78,27 @@ const CTASection = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2"
                 >
-                  Start Building for Free
+                  <Phone className="w-4 h-4" />
+                  Book Free Call
                   <ArrowRight className="w-4 h-4" />
                 </motion.button>
               </Link>
-              <Link to="/portfolio">
+              <a
+                href="https://wa.me/918106775767?text=Hi%20DevSpark%20Studio!%20I'm%20interested%20in%20discussing%20a%20project."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-8 py-4 bg-white border border-gray-200 text-primary rounded-full font-semibold hover:bg-gray-50 hover:border-gray-300 transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-4 bg-[#25D366] text-white rounded-full font-semibold hover:bg-[#20BD5A] transition-all shadow-lg shadow-green-500/20 flex items-center justify-center gap-2"
                 >
-                  View Templates
+                  <MessageCircle className="w-4 h-4" />
+                  Contact on WhatsApp
                 </motion.button>
-              </Link>
+              </a>
             </motion.div>
 
             {/* Trust Notes */}
