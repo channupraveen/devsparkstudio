@@ -1,20 +1,24 @@
 # DevSpark Studio - robots.txt
-# https://devsparkstudio.com
+# https://devsparkstudios.com
 
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://devsparkstudio.com/sitemap.xml
+# Sitemap location
+Sitemap: https://devsparkstudios.com/sitemap.xml
 
-# Block admin/private paths (if any)
+# Block unnecessary paths
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
 Disallow: /private/
+Disallow: /*.json$
 
-# Allow search engine crawlers
+# Allow important crawlers
 User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
@@ -25,3 +29,7 @@ Allow: /
 
 User-agent: DuckDuckBot
 Allow: /
+
+# Crawl delay for politeness
+User-agent: *
+Crawl-delay: 1
