@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail } from "lucide-react";
 
 const team = [
   {
@@ -10,8 +9,8 @@ const team = [
     description:
       "Hands-on developer with experience building scalable web applications for healthcare, real estate, and business platforms.",
     skills: ["Angular", "TypeScript", "System Design"],
-    email: "praveen@devsparkstudio.com",
     avatar: "/praveen.jpeg",
+    linkedin: "https://www.linkedin.com/in/praveen-kumar2001",
   },
   {
     name: "Vishnu Vardhan",
@@ -20,14 +19,16 @@ const team = [
       "Expert in Angular and Python, building robust frontend interfaces and powerful backend solutions with clean, maintainable code.",
     skills: ["Angular", "Python", "REST APIs"],
     avatar: "/vishnu.jpeg",
+    linkedin: "https://www.linkedin.com/in/vishnu-vardhan",
   },
   {
-    name: "Govaradhan",
-    role: "Senior Full Stack Developer",
+    name: "Venkatesh",
+    role: "Product Manager",
     description:
-      "Specializes in React, Node.js, and API-driven systems. Experienced in building performance-focused web applications.",
-    skills: ["React", "Node.js", "Backend APIs"],
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face",
+      "Drives product strategy and roadmap planning. Expert in translating business requirements into technical solutions.",
+    skills: ["Product Strategy", "Agile", "UX Design"],
+    avatar: "/venkat.jpeg",
+    linkedin: "https://www.linkedin.com/in/godugu-venkatesh-b06a16362",
   },
   {
     name: "Hari",
@@ -35,7 +36,8 @@ const team = [
     description:
       "Focuses on SEO strategy, website optimization, and content-driven growth.",
     skills: ["SEO", "Analytics", "Content Strategy"],
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
+    avatar: "/harish.jpeg",
+    linkedin: "https://www.linkedin.com/in/harish-madigela",
   },
 ];
 
@@ -79,6 +81,23 @@ const TeamSection = () => {
                     alt={member.name}
                     className="w-24 h-24 rounded-2xl object-cover mx-auto group-hover:scale-105 transition-transform duration-300"
                   />
+                  {member.linkedin && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute -top-2 -right-2 bg-[#0A66C2] p-1.5 rounded-lg hover:bg-[#004182] transition-colors shadow-md"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        className="w-4 h-4"
+                      >
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                    </a>
+                  )}
                 </div>
 
                 {/* Info */}
@@ -94,7 +113,7 @@ const TeamSection = () => {
                   </p>
 
                   {/* Skills */}
-                  <div className="flex flex-wrap justify-center gap-2 mb-4">
+                  <div className="flex flex-wrap justify-center gap-2">
                     {member.skills.map((skill) => (
                       <span
                         key={skill}
@@ -104,17 +123,6 @@ const TeamSection = () => {
                       </span>
                     ))}
                   </div>
-
-                  {/* Email */}
-                  {member.email && (
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors"
-                    >
-                      <Mail className="w-4 h-4" />
-                      {member.email}
-                    </a>
-                  )}
                 </div>
               </div>
             </motion.div>
