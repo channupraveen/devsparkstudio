@@ -73,9 +73,9 @@ const Contact = () => {
               {/* Logo */}
               <div className="mb-8">
                 <img 
-                  src="/logo.png" 
+                  src="/headerlogo.png" 
                   alt="DevSpark Studio" 
-                  className="h-14 w-auto object-contain"
+                  className="h-20 w-auto object-contain"
                 />
               </div>
 
@@ -121,7 +121,7 @@ const Contact = () => {
                   <div>
                     <p className="font-semibold text-primary mb-1">Location</p>
                     <p className="text-gray-500">
-                      Kendrapara, Odisha
+                      Hyderabad, Telangana
                       <br />
                       India
                     </p>
