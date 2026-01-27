@@ -2,6 +2,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Layout from "../components/layout/Layout";
 import { Mail, Phone, MapPin, Send, Check, Clock } from "lucide-react";
+import emailjs from "@emailjs/browser";
+
+// EmailJS Configuration - Replace with your actual IDs from emailjs.com
+const EMAILJS_SERVICE_ID = "service_no2pbje";
+const EMAILJS_TEMPLATE_ID = "template_x9c5kpv";
+const EMAILJS_PUBLIC_KEY = "VfMui4W4o3GorA88R";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +21,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -25,10 +32,31 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setError("");
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.service,
+          budget: formData.budget,
+          message: formData.message,
+          to_email: "devsparkstudio12@gmail.com",
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error("EmailJS Error:", err);
+      setError("Failed to send message. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -337,6 +365,10 @@ const Contact = () => {
                         </>
                       )}
                     </motion.button>
+
+                    {error && (
+                      <p className="text-red-500 text-sm text-center mt-4">{error}</p>
+                    )}
                   </form>
                 )}
               </div>
