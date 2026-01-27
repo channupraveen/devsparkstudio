@@ -9,6 +9,39 @@ const categories = ["All", "Web Apps", "E-commerce", "Healthcare", "Real Estate"
 const projects = [
   {
     id: 1,
+    title: "Swiss Castle Online",
+    category: "E-commerce",
+    description:
+      "Online cake booking and ordering platform for Swiss Castle Bakery with 32+ outlets across India. Features product catalog, online ordering, and delivery management.",
+    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop",
+    tags: ["E-commerce", "Online Ordering", "Cake Booking"],
+    type: "E-commerce",
+    liveUrl: "https://online.swisscastle.in/",
+  },
+  {
+    id: 2,
+    title: "TechFacilityHub",
+    category: "SaaS",
+    description:
+      "Smart facility management platform for hospitals. Complete solution for managing hospital facilities, assets, maintenance, and operations efficiently.",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop",
+    tags: ["SaaS", "Facility Management", "Healthcare"],
+    type: "SaaS",
+    liveUrl: "https://www.techfacilityhub.com/",
+  },
+  {
+    id: 3,
+    title: "TechFacilityHub Admin",
+    category: "SaaS",
+    description:
+      "SaaS admin portal for hospital maintenance management. Features work order tracking, asset management, preventive maintenance scheduling, and team coordination.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+    tags: ["SaaS", "Maintenance", "Admin Portal"],
+    type: "SaaS",
+    liveUrl: "https://admin.techfacilityhub.com/auth/login",
+  },
+  {
+    id: 4,
     title: "NuShift Connect",
     category: "Healthcare",
     description:
@@ -16,9 +49,10 @@ const projects = [
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop",
     tags: ["Angular", "FastAPI", "PostgreSQL"],
     type: "Web Apps",
+    liveUrl: "https://nushiftconnect.com/",
   },
   {
-    id: 2,
+    id: 5,
     title: "Real Estate Portal",
     category: "Real Estate",
     description:
@@ -28,7 +62,7 @@ const projects = [
     type: "Web Apps",
   },
   {
-    id: 3,
+    id: 6,
     title: "E-commerce Dashboard",
     category: "E-commerce",
     description:
@@ -38,7 +72,7 @@ const projects = [
     type: "E-commerce",
   },
   {
-    id: 4,
+    id: 7,
     title: "Healthcare CRM",
     category: "Healthcare",
     description:
@@ -48,7 +82,7 @@ const projects = [
     type: "Healthcare",
   },
   {
-    id: 5,
+    id: 8,
     title: "SaaS Landing Page",
     category: "SaaS",
     description:
@@ -58,7 +92,7 @@ const projects = [
     type: "SaaS",
   },
   {
-    id: 6,
+    id: 9,
     title: "Property Management",
     category: "Real Estate",
     description:
@@ -158,10 +192,22 @@ const Portfolio = () => {
                           hoveredProject === project.id ? "opacity-100" : "opacity-0"
                         }`}
                       >
-                        <button className="px-6 py-3 bg-white text-primary rounded-full font-semibold flex items-center gap-2 hover:bg-gray-100 transition-colors">
-                          View Project
-                          <ExternalLink className="w-4 h-4" />
-                        </button>
+                        {project.liveUrl ? (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-6 py-3 bg-white text-primary rounded-full font-semibold flex items-center gap-2 hover:bg-gray-100 transition-colors"
+                          >
+                            View Project
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        ) : (
+                          <button className="px-6 py-3 bg-white text-primary rounded-full font-semibold flex items-center gap-2 hover:bg-gray-100 transition-colors">
+                            View Project
+                            <ExternalLink className="w-4 h-4" />
+                          </button>
+                        )}
                       </div>
                       {/* Category Badge */}
                       <div className="absolute top-4 left-4">

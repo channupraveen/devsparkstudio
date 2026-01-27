@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -8,6 +8,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +17,34 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handle hash scrolling after navigation
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.getElementById(location.hash.slice(1));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    }
+  }, [location]);
+
+  const handleDropdownClick = (path: string) => {
+    setActiveDropdown(null);
+    const [basePath, hash] = path.split("#");
+    
+    if (location.pathname === basePath && hash) {
+      // Already on the page, just scroll
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      // Navigate to the page with hash
+      navigate(path);
+    }
+  };
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -94,13 +123,13 @@ const Header = () => {
                       className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-soft-lg border border-gray-100 py-2 overflow-hidden"
                     >
                       {link.dropdown.map((item) => (
-                        <Link
+                        <button
                           key={item.path}
-                          to={item.path}
-                          className="block px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"
+                          onClick={() => handleDropdownClick(item.path)}
+                          className="block w-full text-left px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"
                         >
                           {item.name}
-                        </Link>
+                        </button>
                       ))}
                     </motion.div>
                   )}
@@ -171,14 +200,16 @@ const Header = () => {
                     {link.dropdown && (
                       <div className="ml-4 mt-1 space-y-1">
                         {link.dropdown.map((item) => (
-                          <Link
+                          <button
                             key={item.path}
-                            to={item.path}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                            onClick={() => {
+                              handleDropdownClick(item.path);
+                              setIsMobileMenuOpen(false);
+                            }}
+                            className="block w-full text-left px-4 py-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
                           >
                             {item.name}
-                          </Link>
+                          </button>
                         ))}
                       </div>
                     )}
