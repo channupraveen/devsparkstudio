@@ -19,7 +19,7 @@ const team = [
       "Expert in Angular and Python, building robust frontend interfaces and powerful backend solutions with clean, maintainable code.",
     skills: ["Angular", "Python", "REST APIs"],
     avatar: "/vishnu.jpeg",
-    linkedin: "https://www.linkedin.com/in/vishnu-vardhan",
+    linkedin: "https://www.linkedin.com/in/vishnu-badeti-18644421b",
   },
   {
     name: "Venkatesh",

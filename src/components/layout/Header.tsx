@@ -45,10 +45,10 @@ const Header = () => {
           : "bg-transparent"
       }`}
     >
-      <nav className="container-custom h-full">
+      <nav className="container-custom h-full relative">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center group flex-shrink-0 min-w-[120px]">
             <img 
               src="/headerlogo.png" 
               alt="DevSpark Studio Logo" 
@@ -110,7 +110,7 @@ const Header = () => {
           </div>
 
           {/* Right Side */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
             <Link
               to="/contact"
               className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
@@ -134,7 +134,7 @@ const Header = () => {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors mr-4"
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
