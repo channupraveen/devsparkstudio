@@ -4,6 +4,7 @@ import ProblemSolutionSection from "../components/home/ProblemSolutionSection";
 import ServicesSection from "../components/home/ServicesSection";
 import ProcessSection from "../components/home/ProcessSection";
 import IntegrationsSection from "../components/home/IntegrationsSection";
+import TeamSection from "../components/home/TeamSection";
 import TestimonialsSection from "../components/home/TestimonialsSection";
 import FAQSection from "../components/home/FAQSection";
 import CTASection from "../components/home/CTASection";
@@ -30,10 +31,13 @@ const Index = () => {
       {/* 6. Process - How you work */}
       <ProcessSection />
       
-      {/* 7. FAQ - Address objections */}
+      {/* 7. Our Team - Meet the people */}
+      <TeamSection />
+      
+      {/* 8. FAQ - Address objections */}
       <FAQSection />
       
-      {/* 8. CTA - Convert visitors */}
+      {/* 9. CTA - Convert visitors */}
       <CTASection />
     </Layout>
   );
