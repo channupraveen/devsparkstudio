@@ -4,8 +4,8 @@
   "description": "Custom websites, SaaS platforms, and business systems for growing businesses",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#1a1a2e",
+  "background_color": "#050505",
+  "theme_color": "#050505",
   "icons": [
     {
       "src": "/headerlogo.png",

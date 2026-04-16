@@ -1,226 +1,144 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
-// Portfolio/Work items - can be updated as you complete projects
-const portfolioItems = [
+const projects = [
   {
-    title: "Hospital Operations Portal",
-    category: "SaaS / Healthcare",
-    description: "Complete hospital management system with ticket tracking, department workflows, and QR-based service requests.",
-    status: "In Development",
-    technologies: ["Angular", "FastAPI", "PostgreSQL"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+    title: "Hospital CMMS Platform",
+    category: "SaaS · Healthcare",
+    year: "2026",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=800&fit=crop",
+    tags: ["Angular", "FastAPI", "Postgres"],
+    gradient: "from-nebula-500/30 to-cosmic-500/30",
   },
   {
-    title: "Hotel Service Management",
-    category: "SaaS / Hospitality",
-    description: "Guest request system with real-time notifications, staff dashboards, and performance analytics.",
-    status: "MVP Ready",
-    technologies: ["React", "Node.js", "MongoDB"],
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop",
+    title: "SwarmAI Distributed Runtime",
+    category: "AI Infrastructure",
+    year: "2026",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=800&fit=crop",
+    tags: ["Python", "FastAPI", "Ollama"],
+    gradient: "from-cosmic-500/30 to-electric-500/30",
   },
   {
-    title: "TechFacilityHub Website",
-    category: "Corporate Website",
-    description: "Modern facility management company website with service showcase and lead generation.",
-    status: "Completed",
-    technologies: ["React", "Tailwind CSS"],
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop",
+    title: "V-OnePrep Aviation Training",
+    category: "Web Experience",
+    year: "2025",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=800&fit=crop",
+    tags: ["Next.js", "Tailwind", "Framer"],
+    gradient: "from-electric-500/30 to-nebula-500/30",
+  },
+  {
+    title: "Hotel Guest Experience Platform",
+    category: "SaaS · Hospitality",
+    year: "2025",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=800&fit=crop",
+    tags: ["React", "QR Flow", "Realtime"],
+    gradient: "from-nebula-500/30 to-electric-500/30",
   },
 ];
 
-const technologies = [
-  { name: "Angular", icon: "🅰️" },
-  { name: "React", icon: "⚛️" },
-  { name: "Node.js", icon: "🟢" },
-  { name: "Python", icon: "🐍" },
-  { name: "PostgreSQL", icon: "🐘" },
-  { name: "AWS", icon: "☁️" },
-  { name: "Figma", icon: "🎨" },
-  { name: "TypeScript", icon: "📘" },
-];
-
-const IntegrationsSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
+const PortfolioSection = () => {
   return (
-    <section ref={ref} id="portfolio" className="section-padding bg-gray-50/50">
-      <div className="container-custom">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <span className="text-sm font-medium text-accent uppercase tracking-wider">
-            Our Work
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mt-4 mb-6">
-            Projects We're Building
-          </h2>
-          <p className="text-lg text-gray-500">
-            We're currently working with startups and businesses on MVPs, internal tools, 
-            and custom websites. Here's what we're building.
-          </p>
-        </motion.div>
-
-        {/* Portfolio Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
-          {portfolioItems.map((item, index) => (
+    <section id="portfolio" className="relative section-padding overflow-hidden">
+      <div className="container-custom relative">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div className="max-w-2xl">
             <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-300 border border-gray-100"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/60 glass mb-6"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <span className="text-xs font-medium tracking-wider uppercase text-muted-foreground">
+                Selected work
+              </span>
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05] tracking-tight"
+            >
+              Case studies from <span className="text-gradient">the field.</span>
+            </motion.h2>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+          >
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border border-border/60 hover:border-primary/60 hover:bg-primary/5 transition-all duration-300 text-sm font-medium"
+            >
+              All work <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+          {projects.map((p, i) => (
+            <motion.article
+              key={p.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className={`group relative overflow-hidden rounded-3xl border border-border/60 glass hover-lift ${
+                i % 3 === 0 ? "md:translate-y-0" : i % 3 === 1 ? "md:translate-y-8" : "md:translate-y-4"
+              }`}
             >
               {/* Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative aspect-[16/10] overflow-hidden">
                 <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src={p.image}
+                  alt={p.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-[1200ms] ease-premium group-hover:scale-[1.06]"
                 />
-                <div className="absolute top-4 right-4">
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                    item.status === "Completed" 
-                      ? "bg-green-100 text-green-700"
-                      : item.status === "MVP Ready"
-                      ? "bg-blue-100 text-blue-700"
-                      : "bg-orange-100 text-orange-700"
-                  }`}>
-                    {item.status}
-                  </span>
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${p.gradient} mix-blend-overlay opacity-70 group-hover:opacity-40 transition-opacity duration-700`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent" />
+
+                {/* Arrow */}
+                <div className="absolute top-5 right-5 w-11 h-11 rounded-full glass border border-white/20 flex items-center justify-center opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                  <ArrowUpRight className="w-5 h-5 text-white" />
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <p className="text-xs font-medium text-accent uppercase tracking-wider mb-2">
-                  {item.category}
-                </p>
-                <h3 className="font-display text-xl font-bold text-primary mb-2">
-                  {item.title}
+              {/* Meta */}
+              <div className="p-6 md:p-8">
+                <div className="flex items-center justify-between gap-4 mb-3">
+                  <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                    {p.category}
+                  </span>
+                  <span className="text-xs font-mono text-muted-foreground">{p.year}</span>
+                </div>
+                <h3 className="font-display text-2xl md:text-3xl font-semibold tracking-tight mb-4 group-hover:text-gradient transition-all duration-500">
+                  {p.title}
                 </h3>
-                <p className="text-gray-500 text-sm mb-4 leading-relaxed">
-                  {item.description}
-                </p>
-
-                {/* Technologies */}
                 <div className="flex flex-wrap gap-2">
-                  {item.technologies.map((tech) => (
+                  {p.tags.map((t) => (
                     <span
-                      key={tech}
-                      className="px-2 py-1 bg-gray-100 rounded text-xs text-gray-600"
+                      key={t}
+                      className="px-2.5 py-1 text-[11px] rounded-full border border-border/70 text-muted-foreground"
                     >
-                      {tech}
+                      {t}
                     </span>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
-        </div>
-
-        {/* View More Link */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mb-20"
-        >
-          <Link
-            to="/portfolio"
-            className="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors"
-          >
-            View All Projects
-            <ExternalLink className="w-4 h-4" />
-          </Link>
-        </motion.div>
-
-        {/* Technologies & Stats Section */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-primary mb-4">
-              Technologies We Use
-            </h3>
-            <p className="text-gray-500 text-lg mb-8">
-              Modern, scalable, and maintainable tech stack for every project.
-            </p>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.6 }}
-              >
-                <p className="font-display text-4xl font-bold text-primary">15+</p>
-                <p className="text-gray-500 text-sm mt-1">Projects Delivered</p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.7 }}
-              >
-                <p className="font-display text-4xl font-bold text-primary">99%</p>
-                <p className="text-gray-500 text-sm mt-1">Client Satisfaction</p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.8 }}
-              >
-                <p className="font-display text-4xl font-bold text-primary">5+</p>
-                <p className="text-gray-500 text-sm mt-1">Industries Served</p>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Right - Tech Grid */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="relative"
-          >
-            <div className="grid grid-cols-4 gap-4">
-              {technologies.map((tech, index) => (
-                <motion.div
-                  key={tech.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.3, delay: 0.6 + index * 0.05 }}
-                  className="aspect-square bg-white rounded-2xl border border-gray-200 flex flex-col items-center justify-center hover:shadow-soft hover:border-gray-300 transition-all cursor-default group"
-                >
-                  <span className="text-3xl mb-2 group-hover:scale-110 transition-transform">
-                    {tech.icon}
-                  </span>
-                  <span className="text-xs text-gray-500 font-medium">
-                    {tech.name}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-green-100/50 rounded-full blur-xl" />
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-100/50 rounded-full blur-xl" />
-          </motion.div>
         </div>
       </div>
     </section>
   );
 };
 
-export default IntegrationsSection;
+export default PortfolioSection;

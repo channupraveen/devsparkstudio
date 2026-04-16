@@ -1,154 +1,135 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { MessageSquare, Palette, Code, Rocket, Check } from "lucide-react";
+import { Search, Palette, Code2, Rocket, TrendingUp } from "lucide-react";
 
 const steps = [
   {
+    icon: Search,
     number: "01",
-    icon: MessageSquare,
-    title: "Discovery Call",
-    description: "Free consultation to understand your business, goals, and requirements. We ask the right questions to build the right solution.",
-    outcome: "Clear project scope & quote",
-    duration: "1-2 days",
-    color: "blue",
+    title: "Discover",
+    desc: "Deep immersion into your business, users, and goals. We map real problems before proposing solutions.",
   },
   {
-    number: "02",
     icon: Palette,
-    title: "Design & Planning",
-    description: "UI/UX design in Figma, wireframes, and user flow planning. You'll see exactly how your project will look before we code.",
-    outcome: "Approved designs ready for build",
-    duration: "1-2 weeks",
-    color: "purple",
+    number: "02",
+    title: "Design",
+    desc: "From wireframe to hi-fi in motion. Every pixel, micro-interaction, and transition is intentional.",
   },
   {
+    icon: Code2,
     number: "03",
-    icon: Code,
-    title: "Development",
-    description: "Clean, modular code with regular progress updates. You get live preview links to see your project come to life.",
-    outcome: "Stable, tested product",
-    duration: "2-8 weeks",
-    color: "green",
+    title: "Develop",
+    desc: "Clean architecture, typed code, and performance as a first-class concern. Zero technical debt handoff.",
   },
   {
-    number: "04",
     icon: Rocket,
-    title: "Launch & Support",
-    description: "Production deployment, SEO setup, analytics integration, and training. Plus ongoing support to keep things running smoothly.",
-    outcome: "Live product + peace of mind",
-    duration: "Ongoing",
-    color: "orange",
+    number: "04",
+    title: "Launch",
+    desc: "Staged rollout with monitoring, analytics, and feedback loops from day one.",
+  },
+  {
+    icon: TrendingUp,
+    number: "05",
+    title: "Scale",
+    desc: "Ongoing iteration, growth experiments, and optimization. Your product compounds.",
   },
 ];
 
-const colorClasses: Record<string, { bg: string; icon: string; accent: string }> = {
-  blue: { bg: "bg-blue-50", icon: "text-blue-600", accent: "bg-blue-500" },
-  purple: { bg: "bg-purple-50", icon: "text-purple-600", accent: "bg-purple-500" },
-  green: { bg: "bg-green-50", icon: "text-green-600", accent: "bg-green-500" },
-  orange: { bg: "bg-orange-50", icon: "text-orange-600", accent: "bg-orange-500" },
-};
-
 const ProcessSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section ref={ref} id="process" className="section-padding bg-white">
-      <div className="container-custom">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <span className="text-sm font-medium text-accent uppercase tracking-wider">
-            How We Work
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mt-4 mb-6">
-            Simple, Transparent Process
-          </h2>
-          <p className="text-lg text-gray-500">
-            No surprises, no hidden steps. Here's exactly how we'll work together 
-            to bring your project to life.
-          </p>
-        </motion.div>
+    <section className="relative section-padding overflow-hidden">
+      <div className="container-custom relative">
+        <div className="max-w-3xl mb-16 md:mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/60 glass mb-6"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+            <span className="text-xs font-medium tracking-wider uppercase text-muted-foreground">
+              Process
+            </span>
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05] tracking-tight"
+          >
+            From idea to orbit —{" "}
+            <span className="text-gradient">in five stages.</span>
+          </motion.h2>
+        </div>
 
-        {/* Steps */}
         <div className="relative">
-          {/* Connection Line - Desktop */}
-          <div className="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-gray-200 z-0" />
+          {/* Vertical gradient line */}
+          <div className="absolute left-[27px] md:left-1/2 top-4 bottom-4 w-[2px] md:-translate-x-1/2">
+            <motion.div
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+              style={{ transformOrigin: "top" }}
+              className="h-full bg-gradient-to-b from-nebula-500 via-cosmic-500 to-electric-500"
+            />
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
-            {steps.map((step, index) => {
-              const colors = colorClasses[step.color];
+          <div className="space-y-12 md:space-y-20">
+            {steps.map((step, i) => {
+              const Icon = step.icon;
+              const isEven = i % 2 === 0;
               return (
                 <motion.div
                   key={step.number}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.15 }}
-                  className="relative"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  className={`relative grid grid-cols-[56px_1fr] md:grid-cols-2 items-center gap-6 md:gap-10 ${
+                    isEven ? "" : "md:[direction:rtl]"
+                  }`}
                 >
-                  {/* Card */}
-                  <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-soft border border-gray-100 hover:shadow-soft-lg transition-all duration-300 h-full">
-                    {/* Number Badge with Icon */}
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className={`w-12 h-12 ${colors.bg} rounded-xl flex items-center justify-center`}>
-                        <step.icon className={`w-6 h-6 ${colors.icon}`} />
+                  {/* Node */}
+                  <div className="relative md:absolute md:left-1/2 md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2 z-10 flex justify-center md:[direction:ltr]">
+                    <div className="relative w-14 h-14">
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-nebula-500 via-cosmic-500 to-electric-500 blur-md opacity-60" />
+                      <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-nebula-500 via-cosmic-500 to-electric-500 p-[1.5px] shadow-[0_0_30px_-5px_rgba(99,102,241,0.6)]">
+                        <div className="w-full h-full rounded-[15px] bg-background flex items-center justify-center">
+                          <Icon className="w-6 h-6 text-foreground" />
+                        </div>
                       </div>
-                      <div className={`w-8 h-8 ${colors.accent} text-white rounded-full flex items-center justify-center font-bold text-sm`}>
-                        {step.number}
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <h3 className="font-display text-xl font-bold text-primary mb-3">
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-500 text-sm mb-4 leading-relaxed">
-                      {step.description}
-                    </p>
-
-                    {/* Outcome */}
-                    <div className="pt-4 border-t border-gray-100 space-y-2">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-green-500" />
-                        <span className="text-sm font-medium text-primary">
-                          {step.outcome}
-                        </span>
-                      </div>
-                      <p className="text-xs text-gray-400">
-                        Timeline: {step.duration}
-                      </p>
                     </div>
                   </div>
 
-                  {/* Arrow connector - Desktop only */}
-                  {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-24 -right-4 w-8 h-0.5 bg-gray-300 z-20">
-                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 border-gray-300 rotate-45" />
+                  {/* Card */}
+                  <div
+                    className={`md:[direction:ltr] ${
+                      isEven ? "md:col-start-2 md:pl-16" : "md:col-start-1 md:pr-16 md:text-right"
+                    }`}
+                  >
+                    <div className="inline-block relative group">
+                      <div
+                        className={`font-mono text-xs tracking-widest text-primary mb-2 ${
+                          isEven ? "" : "md:text-right"
+                        }`}
+                      >
+                        {step.number}
+                      </div>
+                      <h3 className="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-3">
+                        {step.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed max-w-md text-sm md:text-base">
+                        {step.desc}
+                      </p>
                     </div>
-                  )}
+                  </div>
                 </motion.div>
               );
             })}
           </div>
         </div>
-
-        {/* Bottom note */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="text-center mt-12"
-        >
-          <p className="text-gray-400 text-sm">
-            Average project completion: <span className="font-semibold text-primary">4-6 weeks</span> • 
-            100% of projects delivered on time
-          </p>
-        </motion.div>
       </div>
     </section>
   );

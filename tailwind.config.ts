@@ -18,7 +18,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -27,28 +28,52 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(220 13% 18%)",
-          foreground: "hsl(0 0% 100%)",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(210 40% 96%)",
-          foreground: "hsl(220 13% 18%)",
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(142 76% 36%)",
-          foreground: "hsl(0 0% 100%)",
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         muted: {
-          DEFAULT: "hsl(210 40% 96.1%)",
-          foreground: "hsl(215 16% 47%)",
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
         card: {
-          DEFAULT: "hsl(0 0% 100%)",
-          foreground: "hsl(220 13% 18%)",
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
         },
         destructive: {
-          DEFAULT: "hsl(0 84% 60%)",
-          foreground: "hsl(0 0% 98%)",
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        // Brand universe palette
+        nebula: {
+          50: "#f0f4ff",
+          100: "#e0e9ff",
+          200: "#c7d4ff",
+          300: "#a5b6ff",
+          400: "#818dff",
+          500: "#6366f1",
+          600: "#5046e5",
+          700: "#4338ca",
+          800: "#312e81",
+          900: "#1e1b4b",
+        },
+        cosmic: {
+          400: "#c084fc",
+          500: "#a855f7",
+          600: "#9333ea",
+          700: "#7e22ce",
+        },
+        electric: {
+          400: "#38bdf8",
+          500: "#0ea5e9",
+          600: "#0284c7",
         },
       },
       borderRadius: {
@@ -63,6 +88,17 @@ export default {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
         'soft-lg': '0 10px 40px -10px rgba(0, 0, 0, 0.1)',
         'soft-xl': '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
+        'glow-sm': '0 0 20px rgba(99, 102, 241, 0.3)',
+        'glow': '0 0 40px rgba(99, 102, 241, 0.4)',
+        'glow-lg': '0 0 80px rgba(99, 102, 241, 0.5)',
+        'glow-purple': '0 0 60px rgba(168, 85, 247, 0.5)',
+        'glow-cyan': '0 0 60px rgba(56, 189, 248, 0.5)',
+      },
+      backgroundImage: {
+        'gradient-aurora': 'linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #38bdf8 100%)',
+        'gradient-nebula': 'linear-gradient(135deg, #818dff 0%, #c084fc 100%)',
+        'gradient-space': 'radial-gradient(ellipse at top, rgba(99,102,241,0.15), transparent 50%), radial-gradient(ellipse at bottom, rgba(168,85,247,0.15), transparent 50%)',
+        'grid-pattern': 'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
       },
       keyframes: {
         "fade-in": {
@@ -101,6 +137,34 @@ export default {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
+        "orbit": {
+          "0%": { transform: "rotate(0deg) translateX(40px) rotate(0deg)" },
+          "100%": { transform: "rotate(360deg) translateX(40px) rotate(-360deg)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(99,102,241,0.4)" },
+          "50%": { boxShadow: "0 0 60px rgba(168,85,247,0.6)" },
+        },
+        "aurora": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+        "twinkle": {
+          "0%, 100%": { opacity: "0.2" },
+          "50%": { opacity: "1" },
+        },
+        "marquee": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "meteor": {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": { transform: "rotate(215deg) translateX(-500px)", opacity: "0" },
+        },
+        "border-beam": {
+          "100%": { "offset-distance": "100%" },
+        },
       },
       animation: {
         "fade-in": "fade-in 0.6s ease-out forwards",
@@ -112,6 +176,17 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "shimmer": "shimmer 2s linear infinite",
+        "orbit": "orbit 20s linear infinite",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        "aurora": "aurora 8s ease infinite",
+        "twinkle": "twinkle 3s ease-in-out infinite",
+        "marquee": "marquee 30s linear infinite",
+        "meteor": "meteor 5s linear infinite",
+      },
+      transitionTimingFunction: {
+        'premium': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'smooth-out': 'cubic-bezier(0.33, 1, 0.68, 1)',
+        'elastic': 'cubic-bezier(0.68, -0.6, 0.32, 1.6)',
       },
     },
   },

@@ -1,63 +1,56 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Home, ArrowLeft } from "lucide-react";
+import Layout from "../components/layout/Layout";
 
 const NotFound = () => {
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center max-w-md"
-      >
-        {/* Logo */}
-        <Link to="/" className="inline-block mb-8">
-          <img 
-            src="/logo.png" 
-            alt="DevSpark Studio" 
-            className="h-16 w-auto mx-auto object-contain"
-          />
-        </Link>
+    <Layout>
+      <section className="relative min-h-[90vh] flex items-center justify-center px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-grid bg-grid-fade opacity-50 pointer-events-none" />
+        <div className="aurora-bg" />
 
-        {/* 404 */}
         <motion.div
-          initial={{ scale: 0.8 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-8xl font-display font-bold text-gray-200 mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative text-center max-w-md"
         >
-          404
-        </motion.div>
-
-        <h1 className="font-display text-3xl font-bold text-primary mb-4">
-          Page Not Found
-        </h1>
-        <p className="text-gray-500 mb-8">
-          Oops! The page you're looking for doesn't exist or has been moved.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all flex items-center justify-center gap-2"
-            >
-              <Home className="w-5 h-5" />
-              Go Home
-            </motion.button>
-          </Link>
-          <button
-            onClick={() => window.history.back()}
-            className="w-full sm:w-auto px-6 py-3 bg-gray-100 text-gray-700 rounded-full font-semibold hover:bg-gray-200 transition-all flex items-center justify-center gap-2"
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display text-[9rem] md:text-[12rem] leading-none font-semibold mb-6 select-none"
           >
-            <ArrowLeft className="w-5 h-5" />
-            Go Back
-          </button>
-        </div>
-      </motion.div>
-    </div>
+            <span className="text-gradient">404</span>
+          </motion.div>
+
+          <h1 className="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-4">
+            Lost in the void.
+          </h1>
+          <p className="text-muted-foreground mb-10">
+            The page you're looking for has drifted beyond our event horizon.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              to="/"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium text-sm btn-shimmer shadow-[0_0_30px_-10px_rgba(99,102,241,0.5)]"
+            >
+              <Home className="w-4 h-4" />
+              Go Home
+            </Link>
+            <button
+              onClick={() => window.history.back()}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full glass border border-border/60 hover:border-primary/60 transition-colors text-sm font-medium"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Go Back
+            </button>
+          </div>
+        </motion.div>
+      </section>
+    </Layout>
   );
 };
 

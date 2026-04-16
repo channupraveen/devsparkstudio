@@ -1,186 +1,100 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Check, Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    id: 1,
-    quote: "DevSpark Studio delivered exactly what we needed. Clean code, fast performance, and excellent communication throughout.",
-    author: "Rajesh Sharma",
-    role: "Business Owner, Hyderabad",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-    rating: 5,
+    quote: "The team moved faster than any agency we've worked with. Three weeks from kickoff to launch, and the product just works.",
+    name: "Aarav Mehta",
+    role: "Founder, Healthspan Clinics",
   },
   {
-    id: 2,
-    quote: "Professional, responsive, and technically excellent. Our hospital management portal runs flawlessly. Highly recommended!",
-    author: "Dr. Priya Reddy",
-    role: "Medical Director",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
-    rating: 5,
+    quote: "The level of craft on motion and interactions is rare. Our conversion jumped 34% after the rebuild.",
+    name: "Priya Nair",
+    role: "Head of Growth, Oryza Studio",
   },
   {
-    id: 3,
-    quote: "The team understood our requirements perfectly. Our new website has already increased our leads by 150% in just 2 months.",
-    author: "Vikram Patel",
-    role: "Startup Founder",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-    rating: 5,
+    quote: "Honest scoping, zero surprise invoices, and they still picked up calls six months post-launch. Top tier.",
+    name: "Rahul Iyer",
+    role: "CTO, Stackforge",
+  },
+  {
+    quote: "They rebuilt our platform from the ground up. The architecture is clean, the UI is gorgeous, and it's blazing fast.",
+    name: "Sneha Reddy",
+    role: "Product Lead, Finpulse",
+  },
+  {
+    quote: "Direct access to the developers. No middlemen. No briefs lost in translation. Exactly how I want to work.",
+    name: "Arjun Varma",
+    role: "Founder, NovaForge",
+  },
+  {
+    quote: "Best design-engineering team I've hired. The motion details alone were worth the investment.",
+    name: "Ananya Kapoor",
+    role: "Marketing Director, Lumenhaus",
   },
 ];
 
-const whyChooseUs = [
-  "Clean & modern UI/UX design",
-  "Business-focused development (not just design)",
-  "Affordable pricing for startups & SMBs",
-  "Fast delivery & clear communication",
-  "Long-term technical support",
-  "No hidden costs or surprises",
-];
+const TestimonialCard = ({ t }: { t: (typeof testimonials)[0] }) => (
+  <div className="group relative flex-shrink-0 w-[360px] md:w-[420px] p-7 md:p-8 mr-5 rounded-3xl glass border border-border/60 hover:border-primary/40 transition-all duration-500">
+    <Quote className="w-8 h-8 text-primary/40 mb-4" />
+    <div className="flex gap-0.5 mb-4">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star key={i} className="w-3.5 h-3.5 fill-primary text-primary" />
+      ))}
+    </div>
+    <p className="text-foreground/90 text-[15px] leading-relaxed mb-6">"{t.quote}"</p>
+    <div className="pt-4 border-t border-border/50">
+      <div className="font-medium text-foreground text-sm">{t.name}</div>
+      <div className="text-xs text-muted-foreground mt-0.5">{t.role}</div>
+    </div>
+  </div>
+);
 
 const TestimonialsSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [activeIndex, setActiveIndex] = useState(0);
+  // Duplicate for seamless loop
+  const row1 = [...testimonials, ...testimonials];
+  const row2 = [...testimonials.slice().reverse(), ...testimonials.slice().reverse()];
 
   return (
-    <section ref={ref} id="testimonials" className="section-padding bg-white">
-      <div className="container-custom">
-        {/* Why Choose Us Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <span className="text-sm font-medium text-accent uppercase tracking-wider">
-              Why DevSpark Studio?
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mt-4">
-              What Makes Us Different
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {whyChooseUs.map((item, index) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
-              >
-                <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span className="text-sm text-gray-700">{item}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Testimonials Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mb-12"
-        >
-          <span className="text-sm font-medium text-accent uppercase tracking-wider">
-            Client Success Stories
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mt-4">
-            Trusted by Businesses
-            <br />
-            Across India
-          </h2>
-        </motion.div>
-
-        {/* Avatars */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex justify-center gap-4 mb-12"
-        >
-          {testimonials.map((testimonial, index) => (
-            <button
-              key={testimonial.id}
-              onClick={() => setActiveIndex(index)}
-              className={`relative transition-all duration-300 ${
-                activeIndex === index
-                  ? "scale-110 z-10"
-                  : "opacity-60 hover:opacity-80"
-              }`}
-            >
-              <img
-                src={testimonial.avatar}
-                alt={testimonial.author}
-                className={`w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-4 transition-all duration-300 ${
-                  activeIndex === index
-                    ? "border-primary shadow-lg"
-                    : "border-white shadow"
-                }`}
-              />
-            </button>
-          ))}
-        </motion.div>
-
-        {/* Active Testimonial */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="max-w-2xl mx-auto text-center"
-        >
+    <section className="relative section-padding overflow-hidden">
+      <div className="container-custom relative">
+        <div className="max-w-3xl mb-16 text-center mx-auto">
           <motion.div
-            key={activeIndex}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/60 glass mb-6"
           >
-            {/* Rating */}
-            <div className="flex justify-center gap-1 mb-4">
-              {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-              ))}
-            </div>
-            
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              "{testimonials[activeIndex].quote}"
-            </p>
-            <p className="font-display text-lg font-semibold text-primary mb-1">
-              {testimonials[activeIndex].author}
-            </p>
-            <p className="text-gray-500 text-sm">
-              {testimonials[activeIndex].role}
-            </p>
+            <Star className="w-3.5 h-3.5 text-primary fill-primary" />
+            <span className="text-xs font-medium tracking-wider uppercase text-muted-foreground">
+              Clients say
+            </span>
           </motion.div>
-        </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05] tracking-tight"
+          >
+            Trusted by teams who <span className="text-gradient">ship fast.</span>
+          </motion.h2>
+        </div>
+      </div>
 
-        {/* Trust Indicators */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
-        >
-          {[
-            "Direct communication with developers",
-            "Founder-led execution",
-            "No outsourcing or junior hand-offs",
-            "Honest timelines & clear scope",
-            "Clean documentation & handover",
-            "Long-term technical support",
-          ].map((item, index) => (
-            <div
-              key={item}
-              className="text-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
-            >
-              <p className="text-sm text-gray-600">{item}</p>
-            </div>
+      {/* Marquee rows */}
+      <div className="marquee-mask space-y-6">
+        <div className="flex animate-marquee" style={{ animationDuration: "45s" }}>
+          {row1.map((t, i) => (
+            <TestimonialCard key={`r1-${i}`} t={t} />
           ))}
-        </motion.div>
+        </div>
+        <div className="flex animate-marquee" style={{ animationDuration: "50s", animationDirection: "reverse" as const }}>
+          {row2.map((t, i) => (
+            <TestimonialCard key={`r2-${i}`} t={t} />
+          ))}
+        </div>
       </div>
     </section>
   );

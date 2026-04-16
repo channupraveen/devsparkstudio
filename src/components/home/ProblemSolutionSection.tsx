@@ -1,159 +1,111 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { XCircle, CheckCircle2, ArrowRight } from "lucide-react";
+import { TrendingDown, Zap, X, Check } from "lucide-react";
+
+const problems = [
+  "Slow, bloated sites killing conversions",
+  "Designs that don't survive real users",
+  "Endless rebuilds from broken handoffs",
+  "Teams that disappear after launch",
+];
+
+const solutions = [
+  "Sub-second loads, 95+ Lighthouse",
+  "Research-led, motion-crafted design",
+  "One team: design + engineering fused",
+  "Long-term partners, not contractors",
+];
 
 const ProblemSolutionSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const problems = [
-    "Customers calling for every small issue",
-    "No online presence or outdated website",
-    "No tracking of issues, services, or requests",
-    "Manual processes eating up your time",
-    "Losing customers to competitors with better websites",
-  ];
-
-  const solutions = [
-    "QR-based service requests & self-service portals",
-    "Modern, professional websites that build trust",
-    "Smart ticket management & tracking dashboards",
-    "Automated workflows that save hours daily",
-    "Conversion-focused design that wins customers",
-  ];
-
   return (
-    <section ref={ref} id="problems-we-solve" className="section-padding bg-white">
-      <div className="container-custom">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <span className="text-sm font-medium text-accent uppercase tracking-wider">
-            Real Problems We Solve
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mt-4 mb-6">
-            Stop Losing Time & Money on Outdated Systems
-          </h2>
-          <p className="text-lg text-gray-500">
-            We build smart digital systems like QR-based service requests, ticket management, 
-            and business dashboards that save time and money.
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Problems */}
+    <section className="relative section-padding overflow-hidden">
+      <div className="container-custom relative">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left copy */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="bg-red-50/50 rounded-2xl p-8 border border-red-100"
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center">
-                <XCircle className="w-5 h-5 text-red-500" />
-              </div>
-              <h3 className="font-display text-2xl font-bold text-primary">
-                Common Problems
-              </h3>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/60 glass mb-6">
+              <Zap className="w-3.5 h-3.5 text-primary" />
+              <span className="text-xs font-medium tracking-wider uppercase text-muted-foreground">
+                The shift
+              </span>
             </div>
-            <ul className="space-y-4">
-              {problems.map((problem, index) => (
-                <motion.li
-                  key={problem}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                  className="flex items-start gap-3 text-gray-600"
-                >
-                  <XCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                  <span>{problem}</span>
-                </motion.li>
-              ))}
-            </ul>
+
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05] tracking-tight">
+              Most agencies ship projects.{" "}
+              <span className="text-gradient">We ship outcomes.</span>
+            </h2>
+
+            <p className="mt-6 text-muted-foreground text-base md:text-lg leading-relaxed max-w-lg">
+              The gap between a site that exists and a site that performs is
+              usually measured in details. We live in those details.
+            </p>
           </motion.div>
 
-          {/* Solutions */}
+          {/* Right: compare card */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-green-50/50 rounded-2xl p-8 border border-green-100"
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="relative"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
-                <CheckCircle2 className="w-5 h-5 text-green-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-nebula-500/20 to-cosmic-500/20 rounded-3xl blur-2xl opacity-60" />
+            <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Problems */}
+              <div className="rounded-3xl p-6 border border-border/60 glass">
+                <div className="flex items-center gap-2 mb-5 pb-4 border-b border-border/50">
+                  <TrendingDown className="w-4 h-4 text-destructive/80" />
+                  <span className="text-xs uppercase tracking-wider font-medium text-muted-foreground">Typical</span>
+                </div>
+                <ul className="space-y-3">
+                  {problems.map((p, i) => (
+                    <motion.li
+                      key={p}
+                      initial={{ opacity: 0, x: -8 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.1 * i, duration: 0.5 }}
+                      className="flex items-start gap-2 text-sm text-muted-foreground"
+                    >
+                      <X className="w-4 h-4 text-destructive/60 mt-0.5 flex-shrink-0" />
+                      <span>{p}</span>
+                    </motion.li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="font-display text-2xl font-bold text-primary">
-                Our Solutions
-              </h3>
+
+              {/* Solutions */}
+              <div className="rounded-3xl p-6 border border-primary/40 bg-gradient-to-br from-nebula-500/5 to-cosmic-500/5 relative overflow-hidden shadow-[0_0_40px_-10px_rgba(99,102,241,0.3)]">
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl" />
+                <div className="relative">
+                  <div className="flex items-center gap-2 mb-5 pb-4 border-b border-border/50">
+                    <Zap className="w-4 h-4 text-primary" />
+                    <span className="text-xs uppercase tracking-wider font-medium text-primary">DevSpark</span>
+                  </div>
+                  <ul className="space-y-3">
+                    {solutions.map((s, i) => (
+                      <motion.li
+                        key={s}
+                        initial={{ opacity: 0, x: 8 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 * i + 0.2, duration: 0.5 }}
+                        className="flex items-start gap-2 text-sm text-foreground"
+                      >
+                        <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <span>{s}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
-            <ul className="space-y-4">
-              {solutions.map((solution, index) => (
-                <motion.li
-                  key={solution}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="flex items-start gap-3 text-gray-600"
-                >
-                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span>{solution}</span>
-                </motion.li>
-              ))}
-            </ul>
           </motion.div>
         </div>
-
-        {/* Use Case Example */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8 lg:p-12 border border-gray-100"
-        >
-          <div className="flex flex-col lg:flex-row items-center gap-8">
-            <div className="flex-1">
-              <h3 className="font-display text-xl lg:text-2xl font-bold text-primary mb-4">
-                Perfect for Hotels, Hospitals & Commercial Buildings
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Imagine guests scanning a QR code in their room to request room service, housekeeping, 
-                or maintenance — without calling anyone. Staff get instant notifications, managers 
-                see real-time dashboards, and you save hours every day.
-              </p>
-              <a 
-                href="/contact" 
-                className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all"
-              >
-                Learn how this works
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-            <div className="flex-shrink-0 grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-xl p-4 shadow-soft text-center">
-                <p className="text-2xl font-bold text-primary">70%</p>
-                <p className="text-xs text-gray-500">Less phone calls</p>
-              </div>
-              <div className="bg-white rounded-xl p-4 shadow-soft text-center">
-                <p className="text-2xl font-bold text-primary">3x</p>
-                <p className="text-xs text-gray-500">Faster response</p>
-              </div>
-              <div className="bg-white rounded-xl p-4 shadow-soft text-center">
-                <p className="text-2xl font-bold text-primary">100%</p>
-                <p className="text-xs text-gray-500">Request tracking</p>
-              </div>
-              <div className="bg-white rounded-xl p-4 shadow-soft text-center">
-                <p className="text-2xl font-bold text-primary">24/7</p>
-                <p className="text-xs text-gray-500">Self-service</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

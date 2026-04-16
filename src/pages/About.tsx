@@ -1,55 +1,37 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
-import { Check, ArrowRight, Mail, Building2, Globe, Code2 } from "lucide-react";
+import { Check, ArrowUpRight, Linkedin, Sparkles } from "lucide-react";
 
 const values = [
-  {
-    icon: Code2,
-    title: "Fixed Pricing",
-    description: "No surprises. Clear scope and pricing from day one.",
-  },
-  {
-    icon: Building2,
-    title: "Full Source-Code Ownership",
-    description: "You own everything we build. No lock-ins or hidden fees.",
-  },
-  {
-    icon: Mail,
-    title: "Direct Access to Developers",
-    description: "Talk directly to the people building your product.",
-  },
-  {
-    icon: Globe,
-    title: "No Hidden Costs",
-    description: "Transparent pricing with no surprise charges.",
-  },
+  { title: "Fixed Pricing", description: "No surprises. Clear scope and pricing from day one." },
+  { title: "Source-Code Ownership", description: "You own everything we build. No lock-ins or hidden fees." },
+  { title: "Developer Access", description: "Talk directly to the people building your product." },
+  { title: "No Hidden Costs", description: "Transparent pricing with no surprise charges, ever." },
 ];
 
-const industries = [
-  "Healthcare",
-  "Real Estate",
-  "E-commerce",
-  "Startups",
-  "SaaS",
-  "Service Businesses",
+const stats = [
+  { n: "40+", l: "Projects shipped" },
+  { n: "8+", l: "Years combined" },
+  { n: "12", l: "Industries" },
+  { n: "4.9★", l: "Avg. rating" },
 ];
+
+const industries = ["Healthcare", "Hospitality", "Real Estate", "E-commerce", "Startups", "SaaS", "Retail", "Aviation"];
 
 const team = [
   {
     name: "Channu Praveen Kumar",
-    role: "Founder & Lead Developer",
-    description:
-      "Hands-on developer with experience building scalable web applications for healthcare, real estate, and business platforms.",
-    skills: ["Angular", "TypeScript", "System Design"],
+    role: "Founder · Lead Developer",
+    description: "Full-stack architect. Scalable web apps across healthcare, real estate, and SaaS.",
+    skills: ["Angular", "FastAPI", "System Design"],
     avatar: "/praveen.jpeg",
     linkedin: "https://www.linkedin.com/in/praveen-kumar2001",
   },
   {
     name: "Vishnu Vardhan",
     role: "Full Stack Developer",
-    description:
-      "Expert in Angular and Python, building robust frontend interfaces and powerful backend solutions with clean, maintainable code.",
+    description: "Angular + Python. Clean frontends and robust backend APIs shipped at speed.",
     skills: ["Angular", "Python", "REST APIs"],
     avatar: "/vishnu.jpeg",
     linkedin: "https://www.linkedin.com/in/vishnu-badeti-18644421b",
@@ -57,18 +39,16 @@ const team = [
   {
     name: "Venkatesh",
     role: "Product Manager",
-    description:
-      "Drives product strategy and roadmap planning. Expert in translating business requirements into technical solutions.",
-    skills: ["Product Strategy", "Agile", "UX Design"],
+    description: "Strategy and roadmap. Translates business goals into shippable technical plans.",
+    skills: ["Product", "Agile", "UX"],
     avatar: "/venkat.jpeg",
     linkedin: "https://www.linkedin.com/in/godugu-venkatesh-b06a16362",
   },
   {
     name: "Hari",
-    role: "Digital Marketing Lead",
-    description:
-      "Focuses on SEO strategy, website optimization, and content-driven growth.",
-    skills: ["SEO", "Analytics", "Content Strategy"],
+    role: "Growth & SEO Lead",
+    description: "SEO, analytics, and content strategy that compound into organic growth.",
+    skills: ["SEO", "Analytics", "Content"],
     avatar: "/harish.jpeg",
     linkedin: "https://www.linkedin.com/in/harish-madigela",
   },
@@ -77,201 +57,191 @@ const team = [
 const About = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-white">
-        <div className="container-custom">
+      {/* Hero */}
+      <section className="relative pt-40 pb-24 overflow-hidden">
+        <div className="absolute inset-0 bg-grid bg-grid-fade opacity-60 pointer-events-none" />
+        <div className="aurora-bg" />
+        <div className="container-custom relative">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-4xl"
           >
-            {/* Logo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="mb-8"
-            >
-              <img 
-                src="/headerlogo.png" 
-                alt="DevSpark Studio" 
-                className="h-20 w-auto mx-auto object-contain"
-              />
-            </motion.div>
-            
-            <span className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700 mb-6">
-              About Us
-            </span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
-              Built by Engineers,
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/60 glass mb-6">
+              <Sparkles className="w-3.5 h-3.5 text-primary" />
+              <span className="text-xs font-medium tracking-wider uppercase text-muted-foreground">
+                Studio
+              </span>
+            </div>
+            <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-semibold leading-[1.02] tracking-tight">
+              Built by engineers,
               <br />
-              <span className="text-gray-400">Not Sales Teams</span>
+              <span className="text-gradient">not sales teams.</span>
             </h1>
-            <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+            <p className="mt-8 text-muted-foreground text-lg max-w-2xl leading-relaxed">
               DevSpark Studio is founded and run by developers who enjoy building real products.
-              Every project is handled with care, clarity, and technical responsibility.
+              Every project is handled with care, clarity, and technical responsibility —
+              no account managers, no middlemen, no ghosting.
             </p>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-5"
+          >
+            {stats.map((s) => (
+              <div key={s.l} className="rounded-2xl glass border border-border/60 p-6">
+                <div className="font-display text-4xl font-semibold text-foreground">{s.n}</div>
+                <div className="text-xs uppercase tracking-wider text-muted-foreground mt-2">{s.l}</div>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Why Work With Us */}
-      <section className="py-16 bg-gray-50/50">
+      {/* Values */}
+      <section className="relative section-padding">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="font-display text-4xl md:text-5xl font-semibold tracking-tight mb-16 max-w-2xl"
           >
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-4">
-              Why Work With Us
-            </h2>
-          </motion.div>
+            What we believe in — <span className="text-gradient">out loud.</span>
+          </motion.h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {values.map((v, i) => (
               <motion.div
-                key={value.title}
+                key={v.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-soft border border-gray-100 hover:shadow-soft-lg transition-all"
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative p-7 rounded-2xl glass border border-border/60 hover:border-primary/40 hover-lift transition-all duration-500"
               >
-                <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-4">
-                  <value.icon className="w-6 h-6 text-green-600" />
-                </div>
-                <h3 className="font-semibold text-primary mb-2">{value.title}</h3>
-                <p className="text-gray-500 text-sm">{value.description}</p>
+                <div className="font-mono text-xs text-primary mb-4">0{i + 1}</div>
+                <h3 className="font-display text-xl font-semibold tracking-tight mb-3">
+                  {v.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{v.description}</p>
               </motion.div>
             ))}
           </div>
 
-          {/* Additional Benefits */}
+          {/* Compact benefits/industries */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-12 bg-white rounded-3xl p-8 shadow-soft border border-gray-100"
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mt-16 rounded-3xl glass border border-border/60 p-8 md:p-12 grid md:grid-cols-2 gap-10"
           >
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="font-display text-2xl font-bold text-primary mb-6">
-                  What Sets Us Apart
-                </h3>
-                <ul className="space-y-4">
-                  {[
-                    "Senior developer-led projects",
-                    "Clean, scalable, future-ready code",
-                    "SEO-ready from day one",
-                    "Transparent process & honest timelines",
-                    "Post-launch support included",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-4 h-4 text-green-600" />
-                      </div>
-                      <span className="text-gray-600">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-display text-2xl font-bold text-primary mb-6">
-                  Industries We Work With
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {industries.map((industry) => (
-                    <span
-                      key={industry}
-                      className="px-4 py-2 bg-gray-50 rounded-full text-gray-600 font-medium"
-                    >
-                      {industry}
+            <div>
+              <h3 className="font-display text-2xl font-semibold tracking-tight mb-6">
+                What sets us apart
+              </h3>
+              <ul className="space-y-3.5">
+                {[
+                  "Senior developer-led projects",
+                  "Clean, scalable, future-ready code",
+                  "SEO and performance from day one",
+                  "Transparent process, honest timelines",
+                  "Post-launch support included",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-primary" />
                     </span>
-                  ))}
-                </div>
+                    <span className="text-foreground/85 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-display text-2xl font-semibold tracking-tight mb-6">
+                Industries we work with
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {industries.map((ind) => (
+                  <span
+                    key={ind}
+                    className="px-3.5 py-1.5 rounded-full border border-border/70 text-sm text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+                  >
+                    {ind}
+                  </span>
+                ))}
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 bg-white">
+      {/* Team */}
+      <section className="relative section-padding">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="max-w-2xl mb-16"
           >
-            <span className="text-sm font-medium text-accent uppercase tracking-wider">
-              Our Team
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mt-4">
-              Meet the Team Behind DevSpark Studio
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/60 glass mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <span className="text-xs font-medium tracking-wider uppercase text-muted-foreground">
+                The team
+              </span>
+            </div>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight">
+              Meet the people behind <span className="text-gradient">the craft.</span>
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {team.map((m, i) => (
               <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 30 }}
+                key={m.name}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="group rounded-3xl border border-border/60 glass overflow-hidden hover-lift"
               >
-                <div className="bg-gray-50 rounded-2xl p-6 hover:bg-white hover:shadow-soft-lg transition-all duration-300 h-full border border-transparent hover:border-gray-100">
-                  {/* Avatar with LinkedIn badge */}
-                  <div className="relative mb-6 w-24 h-24 mx-auto">
-                    <img
-                      src={member.avatar}
-                      alt={member.name}
-                      className="w-24 h-24 rounded-2xl object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    {member.linkedin && (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="absolute -top-2 -right-2 bg-[#0A66C2] p-1.5 rounded-lg hover:bg-[#004182] transition-colors shadow-md"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="white"
-                          className="w-4 h-4"
-                        >
-                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                      </a>
-                    )}
-                  </div>
-                  <div className="text-center">
-                    <h3 className="font-display text-lg font-bold text-primary mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-accent font-medium mb-3">{member.role}</p>
-                    <p className="text-sm text-gray-500 mb-4 leading-relaxed">
-                      {member.description}
-                    </p>
-                    <div className="flex flex-wrap justify-center gap-2">
-                      {member.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-3 py-1 bg-white rounded-full text-xs text-gray-600 border border-gray-200"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+                <div className="relative aspect-square overflow-hidden">
+                  <img
+                    src={m.avatar}
+                    alt={m.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[1200ms] ease-premium group-hover:scale-[1.06]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                  {m.linkedin && (
+                    <a
+                      href={m.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${m.name} LinkedIn`}
+                      className="absolute top-3 right-3 w-9 h-9 rounded-full glass-strong border border-white/20 flex items-center justify-center text-foreground hover:bg-primary/20 transition-colors"
+                    >
+                      <Linkedin className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display text-lg font-semibold tracking-tight">{m.name}</h3>
+                  <p className="text-xs uppercase tracking-wider text-primary mt-1 font-mono">{m.role}</p>
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{m.description}</p>
+                  <div className="flex flex-wrap gap-1.5 mt-4">
+                    {m.skills.map((s) => (
+                      <span key={s} className="px-2 py-0.5 text-[11px] rounded-full border border-border/60 text-muted-foreground">{s}</span>
+                    ))}
                   </div>
                 </div>
               </motion.div>
@@ -280,32 +250,32 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gray-50/50">
+      {/* CTA */}
+      <section className="section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
+            transition={{ duration: 0.8 }}
+            className="relative rounded-[2rem] overflow-hidden border border-border/60 p-12 md:p-16 text-center"
           >
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-6">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-xl text-gray-500 mb-8">
-              Let's discuss your idea and build something great together.
-            </p>
-            <Link to="/contact">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2 mx-auto"
+            <div className="absolute inset-0 bg-gradient-to-br from-nebula-500/15 via-cosmic-500/10 to-electric-500/15" />
+            <div className="absolute inset-0 bg-grid bg-grid-fade opacity-30" />
+            <div className="relative">
+              <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight mb-6">
+                Ready to start building?
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-10">
+                Tell us what you have in mind. We'll reply in under a business day.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-foreground text-background font-medium text-sm btn-shimmer shadow-[0_0_40px_-10px_rgba(99,102,241,0.6)] hover:shadow-[0_0_50px_-5px_rgba(168,85,247,0.7)] transition-shadow duration-500"
               >
-                Get in Touch
-                <ArrowRight className="w-4 h-4" />
-              </motion.button>
-            </Link>
+                Get in touch <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

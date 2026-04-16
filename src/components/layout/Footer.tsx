@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Linkedin, Github, Instagram, MessageCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, Linkedin, Github, Instagram, MessageCircle, ArrowUpRight, Sparkles } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -7,93 +8,98 @@ const Footer = () => {
   const services = [
     { label: "Website Development", path: "/services" },
     { label: "SaaS & Web Apps", path: "/services" },
-    { label: "E-commerce", path: "/services" },
+    { label: "AI & Automation", path: "/services" },
     { label: "UI/UX Design", path: "/services" },
     { label: "SEO & Performance", path: "/services" },
   ];
 
-  const industries = [
-    { label: "Hotels & Resorts", path: "/services" },
-    { label: "Hospitals & Clinics", path: "/services" },
-    { label: "Malls & Retail", path: "/services" },
-    { label: "Startups & SaaS", path: "/services" },
-    { label: "Small Businesses", path: "/services" },
+  const company = [
+    { label: "About", path: "/about" },
+    { label: "Work", path: "/portfolio" },
+    { label: "Contact", path: "/contact" },
   ];
 
-  const company = [
-    { label: "About Us", path: "/about" },
-    { label: "Our Work", path: "/portfolio" },
-    { label: "Contact", path: "/contact" },
-    { label: "Blog", path: "/about" },
+  const socials = [
+    { icon: Linkedin, href: "https://www.linkedin.com/company/devspark-studios", label: "LinkedIn" },
+    { icon: MessageCircle, href: "https://wa.me/918106775767", label: "WhatsApp" },
+    { icon: Instagram, href: "https://instagram.com/devsparkstudio", label: "Instagram" },
+    { icon: Github, href: "https://github.com/devsparkstudio", label: "GitHub" },
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container-custom py-16 lg:py-20">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
-          {/* Brand Column */}
-          <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <Link to="/" className="inline-block mb-6">
-              <img 
-                src="/footerlogo.png" 
-                alt="DevSpark Studio - Web Development Agency Hyderabad" 
-                className="h-32 w-auto object-contain"
-              />
-            </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-sm">
-              We build high-converting websites, SaaS platforms, and business systems 
-              for hotels, hospitals, and growing businesses. Based in Hyderabad, India.
+    <footer className="relative mt-24 border-t border-border/50 overflow-hidden">
+      {/* Aurora backdrop */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-nebula-500/10 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-32 right-1/4 w-[500px] h-[500px] bg-cosmic-500/10 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="relative container-custom py-20">
+        {/* Giant wordmark */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-16 text-center"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/60 glass mb-6">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <span className="text-xs font-medium text-muted-foreground">Let's build something legendary</span>
+          </div>
+          <h2 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-semibold leading-none tracking-tight">
+            <span className="text-gradient">DevSpark</span>
+            <span className="text-foreground/90"> Studio</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+          {/* Left: brand + contact */}
+          <div className="md:col-span-5 space-y-6">
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
+              A premium digital agency building intelligent products, immersive web experiences,
+              and scalable SaaS platforms for ambitious teams worldwide.
             </p>
             <div className="space-y-3">
               <a
                 href="mailto:devsparkstudio12@gmail.com"
-                className="flex items-center gap-3 text-white/60 hover:text-white text-sm transition-colors"
+                className="group inline-flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Mail className="w-4 h-4" />
+                <span className="w-8 h-8 rounded-lg border border-border/60 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/5 transition-colors">
+                  <Mail className="w-3.5 h-3.5" />
+                </span>
                 devsparkstudio12@gmail.com
               </a>
               <a
                 href="tel:+918106775767"
-                className="flex items-center gap-3 text-white/60 hover:text-white text-sm transition-colors"
+                className="group inline-flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Phone className="w-4 h-4" />
-                +91 8106775767
+                <span className="w-8 h-8 rounded-lg border border-border/60 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/5 transition-colors">
+                  <Phone className="w-3.5 h-3.5" />
+                </span>
+                +91 8106 775 767
               </a>
-              <div className="flex items-start gap-3 text-white/60 text-sm">
-                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                Hyderabad, Telangana, India
+              <div className="inline-flex items-center gap-3 text-sm text-muted-foreground">
+                <span className="w-8 h-8 rounded-lg border border-border/60 flex items-center justify-center">
+                  <MapPin className="w-3.5 h-3.5" />
+                </span>
+                Hyderabad · India
               </div>
             </div>
           </div>
 
           {/* Services */}
-          <div>
-            <h4 className="font-semibold text-sm mb-4">Services</h4>
+          <div className="md:col-span-3">
+            <h4 className="font-display text-xs uppercase tracking-[0.2em] text-muted-foreground mb-5">Services</h4>
             <ul className="space-y-3">
-              {services.map((link) => (
-                <li key={link.label}>
+              {services.map((s) => (
+                <li key={s.label}>
                   <Link
-                    to={link.path}
-                    className="text-white/60 hover:text-white text-sm transition-colors"
+                    to={s.path}
+                    className="text-sm text-foreground/80 hover:text-foreground transition-colors inline-flex items-center gap-1 group"
                   >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Industries */}
-          <div>
-            <h4 className="font-semibold text-sm mb-4">Industries</h4>
-            <ul className="space-y-3">
-              {industries.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.path}
-                    className="text-white/60 hover:text-white text-sm transition-colors"
-                  >
-                    {link.label}
+                    {s.label}
+                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                   </Link>
                 </li>
               ))}
@@ -101,97 +107,56 @@ const Footer = () => {
           </div>
 
           {/* Company */}
-          <div>
-            <h4 className="font-semibold text-sm mb-4">Company</h4>
+          <div className="md:col-span-2">
+            <h4 className="font-display text-xs uppercase tracking-[0.2em] text-muted-foreground mb-5">Studio</h4>
             <ul className="space-y-3">
-              {company.map((link) => (
-                <li key={link.label}>
+              {company.map((c) => (
+                <li key={c.label}>
                   <Link
-                    to={link.path}
-                    className="text-white/60 hover:text-white text-sm transition-colors"
+                    to={c.path}
+                    className="text-sm text-foreground/80 hover:text-foreground transition-colors inline-flex items-center gap-1 group"
                   >
-                    {link.label}
+                    {c.label}
+                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Connect */}
-          <div>
-            <h4 className="font-semibold text-sm mb-4">Connect With Us</h4>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="https://www.linkedin.com/company/devspark-studios"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on LinkedIn"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#0077B5] transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://wa.me/918106775767"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Contact us on WhatsApp"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#25D366] transition-colors"
-              >
-                <MessageCircle className="w-5 h-5" />
-              </a>
-              <a
-                href="https://instagram.com/devsparkstudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on Instagram"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#E4405F] transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://github.com/devsparkstudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="View our GitHub"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-            </div>
-
-            {/* Quick CTA */}
-            <div className="mt-6">
-              <a
-                href="https://wa.me/918106775767?text=Hi%20DevSpark%20Studio!%20I'm%20interested%20in%20discussing%20a%20project."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-[#25D366] text-white text-sm font-medium rounded-full hover:bg-[#20BD5A] transition-colors"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Chat Now
-              </a>
+          {/* Social */}
+          <div className="md:col-span-2">
+            <h4 className="font-display text-xs uppercase tracking-[0.2em] text-muted-foreground mb-5">Social</h4>
+            <div className="grid grid-cols-2 gap-2">
+              {socials.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="w-10 h-10 rounded-lg border border-border/60 glass flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/5 hover:-translate-y-0.5 transition-all duration-300"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/40 text-sm">
-            © {currentYear} DevSpark Studio. All rights reserved. Made with ❤️ in Hyderabad, India.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm">
-            <Link
-              to="/privacy"
-              className="text-white/40 hover:text-white transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              to="/terms"
-              className="text-white/40 hover:text-white transition-colors"
-            >
-              Terms of Service
-            </Link>
+        {/* Bottom bar */}
+        <div className="mt-16 pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground font-mono">
+          <p>© {currentYear} DevSpark Studio · All systems nominal.</p>
+          <div className="flex items-center gap-6">
+            <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+            <Link to="/terms" className="hover:text-foreground transition-colors">Terms</Link>
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              Available for projects
+            </span>
           </div>
         </div>
       </div>

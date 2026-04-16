@@ -10,15 +10,14 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   const { pathname } = useLocation();
 
-  // Scroll to top on route change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="relative min-h-screen flex flex-col bg-background text-foreground selection:bg-primary/30">
       <Header />
-      <main className="flex-grow">{children}</main>
+      <main className="relative flex-grow">{children}</main>
       <Footer />
     </div>
   );
