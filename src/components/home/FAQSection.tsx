@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "How much does a website cost?",
     answer:
-      "Pricing depends on scope and complexity. Basic business websites start from ₹30,000 - ₹75,000, while custom SaaS applications and complex platforms are priced based on requirements. We provide a detailed quote after understanding your needs — no hidden costs or surprises.",
+      "Every business is different, so pricing depends on your goals and requirements. We offer affordable solutions for small businesses as well as advanced custom websites for growing brands. After understanding your needs, we provide a clear and transparent quote — no hidden costs.",
   },
   {
     question: "How long does development take?",

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
 import { ExternalLink, ArrowRight } from "lucide-react";
 
-const categories = ["All", "Web Apps", "E-commerce", "Healthcare", "Real Estate", "SaaS"];
+const categories = ["All", "Web Apps", "E-commerce", "Healthcare", "SaaS"];
 
 const projects = [
   {
@@ -53,53 +53,14 @@ const projects = [
   },
   {
     id: 5,
-    title: "Real Estate Portal",
-    category: "Real Estate",
-    description:
-      "Full-featured property listing platform with advanced search, virtual tours, and agent management.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
-    tags: ["React", "Node.js", "MongoDB"],
-    type: "Web Apps",
-  },
-  {
-    id: 6,
-    title: "E-commerce Dashboard",
-    category: "E-commerce",
-    description:
-      "Admin dashboard for online stores with inventory management, order tracking, and sales analytics.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    tags: ["React", "TypeScript", "Tailwind"],
-    type: "E-commerce",
-  },
-  {
-    id: 7,
-    title: "Healthcare CRM",
+    title: "Dental Clinic Portal",
     category: "Healthcare",
     description:
-      "Patient relationship management system with appointment scheduling and medical records.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop",
-    tags: ["Angular", "Python", "AWS"],
+      "Modern dental clinic website with appointment booking, service showcase, and patient-friendly UI for seamless clinic-patient interaction.",
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&h=400&fit=crop",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript"],
     type: "Healthcare",
-  },
-  {
-    id: 8,
-    title: "SaaS Landing Page",
-    category: "SaaS",
-    description:
-      "High-converting landing page with modern design, animations, and optimized for conversions.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    tags: ["React", "Framer Motion", "SEO"],
-    type: "SaaS",
-  },
-  {
-    id: 9,
-    title: "Property Management",
-    category: "Real Estate",
-    description:
-      "Complete property management solution for landlords with tenant portal and maintenance tracking.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop",
-    tags: ["Next.js", "Prisma", "PostgreSQL"],
-    type: "Real Estate",
+    liveUrl: "https://devspark-clinic.vercel.app/",
   },
 ];
 
