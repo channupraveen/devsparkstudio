@@ -46,7 +46,7 @@ const Contact = () => {
           service: formData.service,
           budget: formData.budget,
           message: formData.message,
-          to_email: "devsparkstudio12@gmail.com",
+          to_email: "contact@devsparkstudios.com",
         },
         EMAILJS_PUBLIC_KEY
       );
@@ -119,10 +119,10 @@ const Contact = () => {
                   <div>
                     <p className="font-semibold text-primary mb-1">Email</p>
                     <a
-                      href="mailto:devsparkstudio12@gmail.com"
+                      href="mailto:contact@devsparkstudios.com"
                       className="text-gray-500 hover:text-primary transition-colors"
                     >
-                      devsparkstudio12@gmail.com
+                      contact@devsparkstudios.com
                     </a>
                   </div>
                 </div>

@@ -73,11 +73,10 @@ const FAQSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.6, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                    className={`rounded-2xl border transition-all duration-500 overflow-hidden ${
-                      isOpen
+                    className={`rounded-2xl border transition-all duration-500 overflow-hidden ${isOpen
                         ? "border-primary/40 bg-gradient-to-br from-nebula-500/5 to-cosmic-500/5 shadow-[0_0_40px_-15px_rgba(99,102,241,0.4)]"
                         : "border-border/60 glass hover:border-border"
-                    }`}
+                      }`}
                   >
                     <button
                       onClick={() => setOpen(isOpen ? null : i)}
@@ -90,11 +89,10 @@ const FAQSection = () => {
                       <motion.div
                         animate={{ rotate: isOpen ? 45 : 0 }}
                         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
-                          isOpen
+                        className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${isOpen
                             ? "bg-primary text-primary-foreground"
                             : "border border-border text-muted-foreground"
-                        }`}
+                          }`}
                       >
                         <Plus className="w-4 h-4" />
                       </motion.div>
