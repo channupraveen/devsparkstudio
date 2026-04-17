@@ -95,15 +95,11 @@ const Header = () => {
               className="flex items-center gap-2 group flex-shrink-0"
               aria-label="DevSpark Studio home"
             >
-              <div className="relative w-9 h-9 rounded-lg bg-gradient-to-br from-nebula-500 via-cosmic-500 to-electric-500 flex items-center justify-center shadow-[0_0_20px_-5px_rgba(99,102,241,0.8)]">
-                <div className="absolute inset-[2px] rounded-[6px] bg-background/90 flex items-center justify-center">
-                  <span className="text-gradient-static font-display font-bold text-lg">D</span>
-                </div>
-              </div>
-              <div className="hidden sm:flex items-baseline gap-1 font-display">
-                <span className="font-semibold text-foreground tracking-tight">DevSpark</span>
-                <span className="text-xs text-muted-foreground uppercase tracking-[0.18em]">Studio</span>
-              </div>
+              <img
+                src="/headerlogo.png"
+                alt="DevSpark Studio"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover shadow-[0_0_28px_-10px_rgba(99,102,241,0.85)]"
+              />
             </Link>
 
             {/* Desktop nav */}

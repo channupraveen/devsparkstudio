@@ -18,19 +18,22 @@ const MagneticButton = ({
   ...props
 }: MagneticButtonProps) => {
   const ref = useRef<HTMLButtonElement>(null);
+  const resetTransformTransition = "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)";
 
   const onMove = (e: MouseEvent<HTMLButtonElement>) => {
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    const x = (e.clientX - rect.left - rect.width / 2) * 0.3;
-    const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
+    const x = (e.clientX - rect.left - rect.width / 2) * 0.4;
+    const y = (e.clientY - rect.top - rect.height / 2) * 0.4;
+    el.style.transition = "background-position 0.7s, box-shadow 0.5s";
     el.style.transform = `translate(${x}px, ${y}px)`;
   };
 
   const onLeave = () => {
     const el = ref.current;
     if (!el) return;
+    el.style.transition = `${resetTransformTransition}, background-position 0.7s, box-shadow 0.5s`;
     el.style.transform = `translate(0px, 0px)`;
   };
 
@@ -56,7 +59,7 @@ const MagneticButton = ({
       onMouseLeave={onLeave}
       whileTap={{ scale: 0.97 }}
       className={`relative inline-flex items-center justify-center gap-2 font-medium rounded-full btn-shimmer transition-all duration-300 ease-premium will-change-transform ${sizeClasses} ${variantClasses} ${className}`}
-      style={{ transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-position 0.7s, box-shadow 0.5s" }}
+      style={{ transition: `${resetTransformTransition}, background-position 0.7s, box-shadow 0.5s` }}
       {...props}
     >
       {children}

@@ -61,45 +61,11 @@ const PageLoader = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-10 mb-10"
           >
-            <div className="relative flex items-center justify-center">
-              <motion.svg
-                width="72"
-                height="72"
-                viewBox="0 0 72 72"
-                className="drop-shadow-[0_0_30px_rgba(99,102,241,0.6)]"
-              >
-                <defs>
-                  <linearGradient id="loader-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#818dff" />
-                    <stop offset="50%" stopColor="#c084fc" />
-                    <stop offset="100%" stopColor="#38bdf8" />
-                  </linearGradient>
-                </defs>
-                <motion.circle
-                  cx="36"
-                  cy="36"
-                  r="28"
-                  fill="none"
-                  stroke="url(#loader-grad)"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 0.6 }}
-                  transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
-                />
-                <motion.path
-                  d="M 22 28 L 36 44 L 50 28"
-                  fill="none"
-                  stroke="url(#loader-grad)"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                />
-              </motion.svg>
-            </div>
+            <img
+              src="/headerlogo.png"
+              alt="DevSpark Studio"
+              className="w-18 h-18 rounded-lg object-cover drop-shadow-[0_0_30px_rgba(99,102,241,0.6)]"
+            />
           </motion.div>
 
           {/* Brand */}
