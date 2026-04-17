@@ -25,8 +25,8 @@ const CustomCursor = () => {
 
     const tick = () => {
       // Ease ring toward mouse
-      ringPos.x += (mouse.x - ringPos.x) * 0.18;
-      ringPos.y += (mouse.y - ringPos.y) * 0.18;
+      ringPos.x += (mouse.x - ringPos.x) * 0.5;
+      ringPos.y += (mouse.y - ringPos.y) * 0.5;
       ring.style.transform = `translate3d(${ringPos.x}px, ${ringPos.y}px, 0) translate(-50%, -50%)`;
       rafRef.current = requestAnimationFrame(tick);
     };

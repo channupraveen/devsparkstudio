@@ -60,8 +60,8 @@ const CTASection = () => {
               <div className="mt-10 flex flex-wrap items-center gap-8 text-sm">
                 <div>
                   <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-1 font-mono">Email</div>
-                  <a href="mailto:devsparkstudio12@gmail.com" className="text-foreground hover:text-primary transition-colors">
-                    devsparkstudio12@gmail.com
+                  <a href="mailto:contact@devsparkstudios.com" className="text-foreground hover:text-primary transition-colors">
+                    contact@devsparkstudios.com
                   </a>
                 </div>
                 <div>

@@ -120,7 +120,7 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
           className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass border border-border/60 mb-8"
         >
           <span className="relative flex w-2 h-2">
@@ -136,7 +136,7 @@ const HeroSection = () => {
           <motion.span
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
             className="block"
           >
             We build
@@ -154,7 +154,7 @@ const HeroSection = () => {
                 initial={{ y: "100%", opacity: 0, filter: "blur(8px)" }}
                 animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
                 exit={{ y: "-100%", opacity: 0, filter: "blur(8px)" }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
                 className="inline-block text-gradient italic font-medium"
               >
                 {rotatingWords[wordIndex]}
