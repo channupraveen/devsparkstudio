@@ -47,15 +47,15 @@ const Footer = () => {
             <Sparkles className="w-3.5 h-3.5 text-primary" />
             <span className="text-xs font-medium text-muted-foreground">Let's build something legendary</span>
           </div>
-          <h2 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-semibold leading-none tracking-tight">
+          <h2 className="font-display text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-semibold leading-none tracking-tight break-words">
             <span className="text-gradient">DevSpark</span>
             <span className="text-foreground/90"> Studio</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-10">
           {/* Left: brand + contact */}
-          <div className="md:col-span-5 space-y-6">
+          <div className="col-span-2 md:col-span-5 space-y-6">
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
               A premium digital agency building intelligent products, immersive web experiences,
               and scalable SaaS platforms for ambitious teams worldwide.
@@ -89,7 +89,7 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div className="md:col-span-3">
+          <div className="col-span-1 md:col-span-3">
             <h4 className="font-display text-xs uppercase tracking-[0.2em] text-muted-foreground mb-5">Services</h4>
             <ul className="space-y-3">
               {services.map((s) => (
@@ -107,7 +107,7 @@ const Footer = () => {
           </div>
 
           {/* Company */}
-          <div className="md:col-span-2">
+          <div className="col-span-1 md:col-span-2">
             <h4 className="font-display text-xs uppercase tracking-[0.2em] text-muted-foreground mb-5">Studio</h4>
             <ul className="space-y-3">
               {company.map((c) => (
@@ -125,7 +125,7 @@ const Footer = () => {
           </div>
 
           {/* Social */}
-          <div className="md:col-span-2">
+          <div className="col-span-2 md:col-span-2">
             <h4 className="font-display text-xs uppercase tracking-[0.2em] text-muted-foreground mb-5">Social</h4>
             <div className="grid grid-cols-2 gap-2">
               {socials.map((s) => {
@@ -148,9 +148,9 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground font-mono">
+        <div className="mt-16 pt-8 border-t border-border/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-muted-foreground font-mono">
           <p>© {currentYear} DevSpark Studio · All systems nominal.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-foreground transition-colors">Terms</Link>
             <span className="flex items-center gap-1.5">

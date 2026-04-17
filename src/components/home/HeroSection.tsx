@@ -76,7 +76,7 @@ const HeroSection = () => {
         {/* Big drifting orbs */}
         <motion.div
           aria-hidden
-          className="absolute -top-24 -left-24 w-[500px] h-[500px] rounded-full blur-[120px] opacity-60"
+          className="absolute -top-24 -left-24 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full blur-[80px] sm:blur-[120px] opacity-60"
           style={{
             background: "radial-gradient(circle, rgba(99,102,241,0.35), transparent 70%)",
           }}
@@ -88,7 +88,7 @@ const HeroSection = () => {
         />
         <motion.div
           aria-hidden
-          className="absolute -bottom-32 -right-24 w-[520px] h-[520px] rounded-full blur-[120px] opacity-50"
+          className="absolute -bottom-32 -right-24 w-[320px] sm:w-[520px] h-[320px] sm:h-[520px] rounded-full blur-[80px] sm:blur-[120px] opacity-50"
           style={{
             background: "radial-gradient(circle, rgba(168,85,247,0.35), transparent 70%)",
           }}
@@ -132,7 +132,7 @@ const HeroSection = () => {
           </span>
         </motion.div>
 
-        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-semibold leading-[1.02] tracking-tight text-foreground max-w-5xl">
+        <h1 className="font-display text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[6rem] font-semibold leading-[1.04] sm:leading-[1.02] tracking-tight text-foreground max-w-5xl px-2">
           <motion.span
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -146,7 +146,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            className="relative inline-block h-[1.1em] align-bottom overflow-hidden min-w-[7ch]"
+            className="relative inline-block h-[1.1em] align-bottom overflow-hidden min-w-[6ch] sm:min-w-[7ch] max-w-full"
           >
             <AnimatePresence mode="wait">
               <motion.span
@@ -176,7 +176,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed"
+          className="mt-6 sm:mt-8 max-w-2xl text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed px-4"
         >
           AI-powered solutions, SaaS platforms, and modern web experiences —
           engineered with obsessive attention to motion, craft, and performance.
@@ -186,7 +186,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 flex flex-wrap items-center gap-4 justify-center"
+          className="mt-8 sm:mt-10 flex flex-wrap items-center gap-3 sm:gap-4 justify-center"
         >
           <Link
             to="/contact"
@@ -211,7 +211,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-16 grid grid-cols-3 gap-8 md:gap-12"
+          className="mt-12 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-8 md:gap-12"
         >
           {[
             { n: "40+", l: "Projects shipped" },
@@ -219,8 +219,8 @@ const HeroSection = () => {
             { n: "<50ms", l: "Response time" },
           ].map((s) => (
             <div key={s.l} className="text-center">
-              <div className="font-display text-2xl md:text-3xl font-semibold text-foreground">{s.n}</div>
-              <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">{s.l}</div>
+              <div className="font-display text-xl sm:text-2xl md:text-3xl font-semibold text-foreground">{s.n}</div>
+              <div className="text-[10px] sm:text-[11px] uppercase tracking-wider text-muted-foreground mt-1">{s.l}</div>
             </div>
           ))}
         </motion.div>

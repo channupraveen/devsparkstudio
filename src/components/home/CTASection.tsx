@@ -33,7 +33,7 @@ const CTASection = () => {
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-nebula-500/20 rounded-full blur-3xl animate-blob" />
           <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-cosmic-500/20 rounded-full blur-3xl animate-blob animation-delay-2000" />
 
-          <div className="relative p-8 md:p-14 lg:p-20 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="relative p-6 sm:p-8 md:p-14 lg:p-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left copy */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -47,7 +47,7 @@ const CTASection = () => {
                   Let's talk
                 </span>
               </div>
-              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-tight">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-[1.02] tracking-tight">
                 Got an idea?
                 <br />
                 <span className="text-gradient">Let's launch it.</span>
@@ -57,7 +57,7 @@ const CTASection = () => {
                 no gatekeeping, just a real conversation.
               </p>
 
-              <div className="mt-10 flex flex-wrap items-center gap-8 text-sm">
+              <div className="mt-8 sm:mt-10 flex flex-wrap items-start gap-6 sm:gap-8 text-sm">
                 <div>
                   <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-1 font-mono">Email</div>
                   <a href="mailto:contact@devsparkstudios.com" className="text-foreground hover:text-primary transition-colors">

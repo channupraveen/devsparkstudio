@@ -92,14 +92,24 @@ const Header = () => {
             {/* Logo */}
             <Link
               to="/"
-              className="flex items-center group flex-shrink-0"
+              className="flex items-center gap-2.5 group flex-shrink-0"
               aria-label="DevSpark Studio home"
             >
-              <img
-                src="/headerlogo.png"
-                alt="DevSpark Studio"
-                className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover shadow-[0_0_28px_-10px_rgba(99,102,241,0.85)]"
-              />
+              <svg
+                viewBox="0 0 32 32"
+                className="w-7 h-7 text-foreground"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M16 3 L19 13 L29 16 L19 19 L16 29 L13 19 L3 16 L13 13 Z" />
+              </svg>
+              <span className="font-display text-base sm:text-lg font-semibold tracking-tight text-foreground">
+                DevSpark <span className="text-gradient">Studio</span>
+              </span>
             </Link>
 
             {/* Desktop nav */}
@@ -187,11 +197,11 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Scroll progress bar */}
-          <div className="absolute left-4 right-4 -bottom-[1px] h-[1px] overflow-hidden rounded-full">
+          {/* Scroll progress bar — full width, pinned to header bottom */}
+          <div className="absolute left-0 right-0 -bottom-2 h-[2px] overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-nebula-500 via-cosmic-500 to-electric-500 transition-[width] duration-150"
-              style={{ width: `${scrollProgress}%` }}
+              className="h-full origin-left bg-gradient-to-r from-nebula-500 via-cosmic-500 to-electric-500 shadow-[0_0_12px_rgba(168,85,247,0.6)] transition-transform duration-150 ease-out"
+              style={{ transform: `scaleX(${scrollProgress / 100})` }}
             />
           </div>
         </div>

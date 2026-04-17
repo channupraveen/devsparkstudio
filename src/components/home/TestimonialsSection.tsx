@@ -35,7 +35,7 @@ const testimonials = [
 ];
 
 const TestimonialCard = ({ t }: { t: (typeof testimonials)[0] }) => (
-  <div className="group relative flex-shrink-0 w-[360px] md:w-[420px] p-7 md:p-8 mr-5 rounded-3xl glass border border-border/60 hover:border-primary/40 transition-all duration-500">
+  <div className="group relative flex-shrink-0 w-[300px] sm:w-[360px] md:w-[420px] p-6 sm:p-7 md:p-8 mr-4 sm:mr-5 rounded-3xl glass border border-border/60 hover:border-primary/40 transition-all duration-500">
     <Quote className="w-8 h-8 text-primary/40 mb-4" />
     <div className="flex gap-0.5 mb-4">
       {Array.from({ length: 5 }).map((_, i) => (
@@ -76,7 +76,7 @@ const TestimonialsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05] tracking-tight"
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight"
           >
             Trusted by teams who <span className="text-gradient">ship fast.</span>
           </motion.h2>
