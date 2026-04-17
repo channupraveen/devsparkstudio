@@ -76,7 +76,7 @@ const Header = () => {
       <motion.header
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled ? "py-2" : "py-4"
         }`}
@@ -92,18 +92,21 @@ const Header = () => {
             {/* Logo */}
             <Link
               to="/"
-              className="flex items-center gap-2 group flex-shrink-0"
+              className="flex items-center group flex-shrink-0"
               aria-label="DevSpark Studio home"
             >
-              <div className="relative w-9 h-9 rounded-lg bg-gradient-to-br from-nebula-500 via-cosmic-500 to-electric-500 flex items-center justify-center shadow-[0_0_20px_-5px_rgba(99,102,241,0.8)]">
-                <div className="absolute inset-[2px] rounded-[6px] bg-background/90 flex items-center justify-center">
-                  <span className="text-gradient-static font-display font-bold text-lg">D</span>
-                </div>
-              </div>
-              <div className="hidden sm:flex items-baseline gap-1 font-display">
-                <span className="font-semibold text-foreground tracking-tight">DevSpark</span>
-                <span className="text-xs text-muted-foreground uppercase tracking-[0.18em]">Studio</span>
-              </div>
+              <motion.div
+                whileHover={{ scale: 1.08, y: -2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                className="relative"
+              >
+                <div className="absolute -inset-3 bg-gradient-to-r from-nebula-500 via-cosmic-500 to-electric-500 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-300" />
+                <img
+                  src="/headerlogo.png"
+                  alt="DevSpark Studio"
+                  className="h-20 w-auto object-contain relative z-10 drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]"
+                />
+              </motion.div>
             </Link>
 
             {/* Desktop nav */}

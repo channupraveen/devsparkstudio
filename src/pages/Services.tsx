@@ -64,6 +64,22 @@ const services = [
     gradient: "from-electric-500 to-nebula-500",
   },
   {
+    id: "seo-optimization",
+    icon: TrendingUp,
+    title: "SEO Optimization",
+    tagline: "Organic growth, simplified.",
+    description:
+      "Technical SEO, on-page optimization, and strategic content planning that drives qualified organic traffic and boosts your search rankings.",
+    features: [
+      "Technical SEO audit",
+      "Keyword research & strategy",
+      "On-page optimization",
+      "Core Web Vitals improvement",
+      "Monthly SEO reporting",
+    ],
+    gradient: "from-cosmic-500 to-electric-500",
+  },
+  {
     id: "design",
     icon: Palette,
     title: "UI / UX Design",
@@ -163,74 +179,73 @@ const Services = () => {
 
       {/* Service blocks */}
       <section className="relative py-8 md:py-12">
-        <div className="container-custom space-y-6">
-          {services.map((s, i) => {
-            const Icon = s.icon;
-            const isOdd = i % 2 === 1;
-            return (
-              <motion.div
-                key={s.id}
-                id={s.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative overflow-hidden rounded-[2rem] border border-border/60 glass p-8 md:p-12 lg:p-16 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center scroll-mt-32 ${
-                  isOdd ? "lg:[direction:rtl]" : ""
-                }`}
-              >
-                {/* Glow */}
-                <div className={`absolute -top-20 -right-20 w-80 h-80 bg-gradient-to-br ${s.gradient} opacity-10 blur-3xl rounded-full`} />
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {services.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <motion.div
+                  key={s.id}
+                  id={s.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.05 }}
+                  className="relative overflow-hidden rounded-3xl border border-border/80 glass hover:border-primary/40 transition-colors duration-300 p-8 md:p-10 flex flex-col scroll-mt-32 min-h-full"
+                >
+                  {/* Glow - Enhanced */}
+                  <div className={`absolute -top-24 -right-24 w-80 h-80 bg-gradient-to-br ${s.gradient} opacity-15 blur-3xl rounded-full pointer-events-none`} />
 
-                <div className={`relative lg:[direction:ltr] ${isOdd ? "lg:col-start-2" : ""}`}>
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${s.gradient} p-[1.5px] shadow-[0_0_30px_-8px_rgba(99,102,241,0.5)]`}>
-                      <div className="w-full h-full rounded-[15px] bg-background flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-foreground" />
+                  <div className="relative flex flex-col h-full">
+                    <div className="mb-6">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className={`flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br ${s.gradient} p-[2px] shadow-[0_0_40px_-8px_rgba(99,102,241,0.6)] hover:shadow-[0_0_50px_-5px_rgba(99,102,241,0.8)] transition-shadow duration-300`}>
+                          <div className="w-full h-full rounded-[16px] bg-background flex items-center justify-center">
+                            <Icon className="w-6 h-6 text-primary" />
+                          </div>
+                        </div>
+                        <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary font-bold">
+                          0{i + 1}
+                        </span>
                       </div>
+
+                      <h3 className="font-display text-2xl md:text-3xl font-bold leading-[1.15] tracking-tight mb-2">
+                        {s.title}
+                      </h3>
+                      <p className="text-primary font-semibold text-sm mb-3">{s.tagline}</p>
+                      <p className="text-muted-foreground leading-relaxed text-sm">
+                        {s.description}
+                      </p>
                     </div>
-                    <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                      0{i + 1}
-                    </span>
-                  </div>
 
-                  <h2 className="font-display text-3xl md:text-5xl font-semibold leading-[1.05] tracking-tight mb-4">
-                    {s.title}
-                  </h2>
-                  <p className="text-primary font-medium mb-4">{s.tagline}</p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {s.description}
-                  </p>
-
-                  <Link
-                    to="/contact"
-                    className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground"
-                  >
-                    Let's talk
-                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </Link>
-                </div>
-
-                <div className={`relative lg:[direction:ltr] ${isOdd ? "lg:col-start-1" : ""}`}>
-                  <div className="rounded-2xl border border-border/60 bg-background/40 p-6 md:p-8">
-                    <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono mb-5">
-                      What's included
+                    <div className="mt-6 pt-6 border-t border-border/50 flex-1">
+                      <div className="text-xs uppercase tracking-[0.3em] text-primary font-bold mb-4">
+                        What's included
+                      </div>
+                      <ul className="space-y-2.5">
+                        {s.features.map((f) => (
+                          <li key={f} className="flex items-start gap-2.5 text-xs md:text-sm">
+                            <span className="w-4 h-4 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <Check className="w-2.5 h-2.5 text-primary" />
+                            </span>
+                            <span className="text-foreground/85 leading-relaxed">{f}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <ul className="space-y-3">
-                      {s.features.map((f) => (
-                        <li key={f} className="flex items-start gap-3 text-sm md:text-[15px]">
-                          <span className="w-5 h-5 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <Check className="w-3 h-3 text-primary" />
-                          </span>
-                          <span className="text-foreground/85">{f}</span>
-                        </li>
-                      ))}
-                    </ul>
+
+                    <Link
+                      to="/contact"
+                      className="group mt-6 inline-flex items-center gap-2 text-xs font-semibold text-foreground hover:text-primary transition-colors duration-300"
+                    >
+                      Let's talk
+                      <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    </Link>
                   </div>
-                </div>
-              </motion.div>
-            );
-          })}
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 

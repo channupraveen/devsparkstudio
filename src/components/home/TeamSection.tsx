@@ -104,7 +104,7 @@ const TeamSection = () => {
                       </a>
                     )}
                     <a
-                      href="mailto:devsparkstudio12@gmail.com"
+                      href="mailto:contact@devsparkstudios.com"
                       aria-label={`Email ${m.name}`}
                       className="w-9 h-9 rounded-full glass-strong border border-white/20 flex items-center justify-center text-foreground hover:bg-primary/20 transition-colors"
                     >

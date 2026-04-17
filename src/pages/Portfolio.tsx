@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
 import { ExternalLink, ArrowRight } from "lucide-react";
+import HeroUniverseBackground from "../components/home/HeroUniverseBackground";
 
 const categories = ["All", "Web Apps", "E-commerce", "Healthcare", "SaaS"];
 
@@ -76,32 +77,37 @@ const Portfolio = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-white">
-        <div className="container-custom">
+      <section className="relative pt-32 pb-16 bg-background overflow-hidden">
+        {/* 3D Background */}
+        <div className="absolute inset-0 z-0">
+          <HeroUniverseBackground />
+        </div>
+
+        <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <span className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700 mb-6">
+            <span className="inline-block px-4 py-2 bg-foreground/10 border border-border/50 rounded-full text-sm font-medium text-foreground mb-6">
               Our Work
             </span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Selected Work
               <br />
-              <span className="text-gray-400">& Case Studies</span>
+              <span className="text-gradient italic font-medium">& Case Studies</span>
             </h1>
-            <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Each project focuses on real-world use cases, performance, and maintainability.
               From MVPs to enterprise solutions.
             </p>
           </motion.div>
         </div>
-      </section>
+        </section>
 
       {/* Portfolio Section */}
-      <section className="py-16 bg-gray-50/50">
+      <section className="py-16 bg-background/50">
         <div className="container-custom">
           {/* Category Filter */}
           <motion.div
@@ -116,8 +122,8 @@ const Portfolio = () => {
                 onClick={() => setActiveCategory(category)}
                 className={`px-5 py-2.5 rounded-full font-medium text-sm transition-all ${
                   activeCategory === category
-                    ? "bg-primary text-white shadow-lg shadow-primary/20"
-                    : "bg-white text-gray-600 border border-gray-200 hover:border-gray-300"
+                    ? "bg-primary text-background shadow-lg shadow-primary/20"
+                    : "bg-card text-muted-foreground border border-border hover:border-primary/50"
                 }`}
               >
                 {category}
@@ -132,15 +138,15 @@ const Portfolio = () => {
                 <motion.div
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
                   className="group"
                 >
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-300 border border-gray-100 h-full flex flex-col">
+                  <div className="bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-300 border border-border h-full flex flex-col">
                     {/* Image */}
                     <div className="relative overflow-hidden aspect-[4/3]">
                       <img
@@ -172,7 +178,7 @@ const Portfolio = () => {
                       </div>
                       {/* Category Badge */}
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-primary">
+                        <span className="px-3 py-1 bg-background/90 backdrop-blur-sm rounded-full text-xs font-medium text-primary">
                           {project.category}
                         </span>
                       </div>
@@ -180,17 +186,17 @@ const Portfolio = () => {
 
                     {/* Content */}
                     <div className="p-6 flex-1 flex flex-col">
-                      <h3 className="font-display text-xl font-bold text-primary mb-2">
+                      <h3 className="font-display text-xl font-bold text-foreground mb-2">
                         {project.title}
                       </h3>
-                      <p className="text-gray-500 text-sm mb-4 flex-1">
+                      <p className="text-muted-foreground text-sm mb-4 flex-1">
                         {project.description}
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-3 py-1 bg-gray-100 rounded-full text-xs text-gray-600"
+                            className="px-3 py-1 bg-foreground/10 rounded-full text-xs text-muted-foreground border border-border/50"
                           >
                             {tag}
                           </span>
@@ -211,11 +217,11 @@ const Portfolio = () => {
             transition={{ duration: 0.6 }}
             className="mt-16 text-center"
           >
-            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-soft border border-gray-100 max-w-2xl mx-auto">
-              <h3 className="font-display text-2xl font-bold text-primary mb-4">
+            <div className="bg-card rounded-3xl p-8 md:p-12 shadow-soft border border-border max-w-2xl mx-auto">
+              <h3 className="font-display text-2xl font-bold text-foreground mb-4">
                 More Projects in Progress
               </h3>
-              <p className="text-gray-500 mb-6">
+              <p className="text-muted-foreground mb-6">
                 We're constantly working on new and exciting projects. Stay tuned for more
                 case studies and portfolio updates.
               </p>

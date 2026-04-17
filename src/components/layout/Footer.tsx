@@ -62,13 +62,13 @@ const Footer = () => {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:devsparkstudio12@gmail.com"
+                href="mailto:contact@devsparkstudios.com"
                 className="group inline-flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <span className="w-8 h-8 rounded-lg border border-border/60 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/5 transition-colors">
                   <Mail className="w-3.5 h-3.5" />
                 </span>
-                devsparkstudio12@gmail.com
+                contact@devsparkstudios.com
               </a>
               <a
                 href="tel:+918106775767"
