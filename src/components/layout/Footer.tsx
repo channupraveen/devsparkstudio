@@ -22,7 +22,7 @@ const Footer = () => {
   const socials = [
     { icon: Linkedin, href: "https://www.linkedin.com/company/devspark-studios", label: "LinkedIn" },
     { icon: MessageCircle, href: "https://wa.me/918106775767", label: "WhatsApp" },
-    { icon: Instagram, href: "https://instagram.com/devsparkstudio", label: "Instagram" },
+    { icon: Instagram, href: "https://www.instagram.com/devspark.agency/", label: "Instagram" },
     { icon: Github, href: "https://github.com/devsparkstudio", label: "GitHub" },
   ];
 
@@ -127,7 +127,7 @@ const Footer = () => {
           {/* Social */}
           <div className="col-span-2 md:col-span-2">
             <h4 className="font-display text-xs uppercase tracking-[0.2em] text-muted-foreground mb-5">Social</h4>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 gap-2">
               {socials.map((s) => {
                 const Icon = s.icon;
                 return (
@@ -137,9 +137,10 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="w-10 h-10 rounded-lg border border-border/60 glass flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/5 hover:-translate-y-0.5 transition-all duration-300"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border/60 glass text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/5 hover:-translate-y-0.5 transition-all duration-300"
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-4 h-4 flex-shrink-0" />
+                    <span className="text-xs font-medium">{s.label}</span>
                   </a>
                 );
               })}

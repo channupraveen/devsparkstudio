@@ -114,7 +114,7 @@ const Contact = () => {
                 <div className="relative inline-block group">
                   <div className="absolute -inset-4 bg-gradient-to-r from-nebula-500 via-cosmic-500 to-electric-500 rounded-3xl opacity-20 group-hover:opacity-40 blur-xl transition-opacity duration-300" />
                   <img
-                    src="/headerlogo.png"
+                    src="/logo.png"
                     alt="DevSpark Studio"
                     className="h-32 w-auto object-contain relative z-10 drop-shadow-[0_0_30px_rgba(99,102,241,0.5)]"
                   />

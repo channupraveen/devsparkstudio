@@ -14,6 +14,17 @@ import {
   Check,
 } from "lucide-react";
 
+const iconColors: Record<string, string> = {
+  "web-dev": "text-cyan-400",
+  apps: "text-purple-400",
+  ai: "text-violet-400",
+  "seo-optimization": "text-blue-400",
+  design: "text-purple-500",
+  ecommerce: "text-indigo-400",
+  seo: "text-blue-500",
+  automation: "text-purple-400",
+};
+
 const services = [
   {
     id: "web-dev",
@@ -198,15 +209,11 @@ const Services = () => {
 
                   <div className="relative flex flex-col h-full">
                     <div className="mb-6">
-                      <div className="flex items-center gap-3 mb-6">
-                        <div className={`flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br ${s.gradient} p-[2px] shadow-[0_0_40px_-8px_rgba(99,102,241,0.6)] hover:shadow-[0_0_50px_-5px_rgba(99,102,241,0.8)] transition-shadow duration-300`}>
-                          <div className="w-full h-full rounded-[16px] bg-background flex items-center justify-center">
-                            <Icon className="w-6 h-6 text-primary" />
-                          </div>
-                        </div>
-                        <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary font-bold">
-                          0{i + 1}
-                        </span>
+                      <div className="flex items-center justify-between mb-6">
+                        <Icon className={`w-8 h-8 ${iconColors[s.id] ?? 'text-primary'}`} />
+                        <Link to="/contact" className="w-7 h-7 rounded-full border border-border/60 flex items-center justify-center hover:border-primary/60 hover:bg-primary/5 transition-all duration-200">
+                          <ArrowUpRight className="w-4 h-4 text-muted-foreground/60" />
+                        </Link>
                       </div>
 
                       <h3 className="font-display text-2xl md:text-3xl font-bold leading-[1.15] tracking-tight mb-2">
