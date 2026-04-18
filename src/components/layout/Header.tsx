@@ -95,21 +95,11 @@ const Header = () => {
               className="flex items-center gap-2.5 group flex-shrink-0"
               aria-label="DevSpark Studio home"
             >
-              <svg
-                viewBox="0 0 32 32"
-                className="w-7 h-7 text-foreground"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M16 3 L19 13 L29 16 L19 19 L16 29 L13 19 L3 16 L13 13 Z" />
-              </svg>
-              <span className="font-display text-base sm:text-lg font-semibold tracking-tight text-foreground">
-                DevSpark <span className="text-gradient">Studio</span>
-              </span>
+              <img
+                src="/logo.png"
+                alt="DevSpark Studio"
+                className="h-28 sm:h-32 w-auto object-contain"
+              />
             </Link>
 
             {/* Desktop nav */}
