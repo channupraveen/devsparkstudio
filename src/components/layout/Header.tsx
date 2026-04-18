@@ -187,8 +187,8 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Scroll progress bar — full width, pinned to header bottom */}
-          <div className="absolute left-0 right-0 -bottom-2 h-[2px] overflow-hidden">
+          {/* Scroll progress bar — desktop only */}
+          <div className="hidden lg:block absolute left-0 right-0 -bottom-2 h-[2px] overflow-hidden">
             <div
               className="h-full origin-left bg-gradient-to-r from-nebula-500 via-cosmic-500 to-electric-500 shadow-[0_0_12px_rgba(168,85,247,0.6)] transition-transform duration-150 ease-out"
               style={{ transform: `scaleX(${scrollProgress / 100})` }}
