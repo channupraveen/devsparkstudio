@@ -78,7 +78,7 @@ const Header = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-          isScrolled ? "py-2" : "py-4"
+          isScrolled ? "py-1" : "py-2"
         }`}
       >
         <div className="container-custom">
@@ -92,13 +92,13 @@ const Header = () => {
             {/* Logo */}
             <Link
               to="/"
-              className="flex items-center gap-2.5 group flex-shrink-0"
+              className="flex items-center gap-2.5 group flex-shrink-0 overflow-visible"
               aria-label="DevSpark Studio home"
             >
               <img
                 src="/logo.png"
                 alt="DevSpark Studio"
-                className="h-28 sm:h-32 w-auto object-contain"
+                className="h-16 sm:h-18 w-auto object-contain"
               />
             </Link>
 
